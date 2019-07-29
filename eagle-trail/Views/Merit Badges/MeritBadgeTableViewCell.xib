@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="ac9-cC-rAz" customClass="MeritBadgeTableViewCell" customModule="Eagle_Trail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ac9-cC-rAz" id="f8J-hB-skg">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lZZ-sn-efe">
+                        <rect key="frame" x="16" y="0.0" width="382" height="43.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="American Business" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KVJ-CS-TOm" userLabel="Name">
+                                <rect key="frame" x="0.0" y="8" width="358" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KhG-35-FTR" userLabel="Favorite">
+                                <rect key="frame" x="358" y="10" width="24" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="3au-jT-kG8"/>
+                                    <constraint firstAttribute="width" secondItem="KhG-35-FTR" secondAttribute="height" multiplier="1:1" priority="999" id="DgU-pt-CXE"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="favorite"/>
+                                <connections>
+                                    <action selector="favoriteButtonPressed:" destination="ac9-cC-rAz" eventType="touchUpInside" id="EZJ-an-UDl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="KhG-35-FTR" secondAttribute="bottom" constant="10" id="8y3-UI-5Ne"/>
+                            <constraint firstAttribute="bottom" secondItem="KVJ-CS-TOm" secondAttribute="bottom" constant="8" id="Ccl-H7-rtt"/>
+                            <constraint firstItem="KhG-35-FTR" firstAttribute="top" secondItem="lZZ-sn-efe" secondAttribute="top" constant="10" id="cYu-9d-2xu"/>
+                            <constraint firstItem="KVJ-CS-TOm" firstAttribute="top" secondItem="lZZ-sn-efe" secondAttribute="top" constant="8" id="hyS-19-qaX"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lZZ-sn-efe" firstAttribute="top" secondItem="f8J-hB-skg" secondAttribute="top" id="FI9-Vh-YQa"/>
+                    <constraint firstItem="lZZ-sn-efe" firstAttribute="leading" secondItem="f8J-hB-skg" secondAttribute="leading" constant="16" id="PHl-nk-Cnx"/>
+                    <constraint firstAttribute="trailing" secondItem="lZZ-sn-efe" secondAttribute="trailing" constant="16" id="X6g-uQ-7WA"/>
+                    <constraint firstAttribute="bottom" secondItem="lZZ-sn-efe" secondAttribute="bottom" id="cI8-ah-Raa"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="favoriteButton" destination="KhG-35-FTR" id="mD9-IX-9pO"/>
+                <outlet property="nameLabel" destination="KVJ-CS-TOm" id="uiq-Rz-nYz"/>
+            </connections>
+            <point key="canvasLocation" x="-130.43478260869566" y="89.732142857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="favorite" width="24" height="24"/>
+    </resources>
+</document>

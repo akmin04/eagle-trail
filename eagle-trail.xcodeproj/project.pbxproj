@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		072D45CA22E7C73900246334 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072D45C922E7C73900246334 /* RankTableViewCell.xib */; };
+		072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D45CB22E7C74500246334 /* RankTableViewCell.swift */; };
+		072D45D022E7C84100246334 /* RankTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D45CF22E7C84100246334 /* RankTableViewController.swift */; };
+		072D45D222E7C91400246334 /* RankDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D45D122E7C91400246334 /* RankDetailViewController.swift */; };
+		073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA2C22E650E800FFBE24 /* AppDelegate.swift */; };
+		073DEA3422E650E900FFBE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA3322E650E900FFBE24 /* Assets.xcassets */; };
+		073DEA3722E650E900FFBE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA3522E650E900FFBE24 /* LaunchScreen.storyboard */; };
+		073DEA4422E6533100FFBE24 /* MeritBadgeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4322E6533100FFBE24 /* MeritBadgeTableViewController.swift */; };
+		073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */; };
+		073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */; };
+		0772525322E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */; };
+		07A1F7AD22E998C2004EE52F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1F7AC22E998C2004EE52F /* CoreDataManager.swift */; };
+		07A1F7AF22EA3325004EE52F /* preload.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A1F7AE22EA3325004EE52F /* preload.json */; };
+		07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */; };
+		07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */; };
+		07D8094C22E799E4005DC731 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */; };
+		07D8094F22E799F9005DC731 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094E22E799F9005DC731 /* Reusable.swift */; };
+		07E4996922E69F220042B4AD /* EagleTrail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07E4996722E69F220042B4AD /* EagleTrail.xcdatamodeld */; };
+		4FB6E1F7800A344C87043A2B /* Pods_Eagle_Trail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		072D45C922E7C73900246334 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
+		072D45CB22E7C74500246334 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
+		072D45CF22E7C84100246334 /* RankTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewController.swift; sourceTree = "<group>"; };
+		072D45D122E7C91400246334 /* RankDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankDetailViewController.swift; sourceTree = "<group>"; };
+		073DEA2922E650E800FFBE24 /* Eagle Trail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eagle Trail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		073DEA2C22E650E800FFBE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		073DEA3322E650E900FFBE24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		073DEA3622E650E900FFBE24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		073DEA3822E650E900FFBE24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		073DEA4322E6533100FFBE24 /* MeritBadgeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeTableViewController.swift; sourceTree = "<group>"; };
+		073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeTableViewCell.swift; sourceTree = "<group>"; };
+		073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeritBadgeTableViewCell.xib; sourceTree = "<group>"; };
+		0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeDetailViewController.swift; sourceTree = "<group>"; };
+		07A1F7AC22E998C2004EE52F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		07A1F7AE22EA3325004EE52F /* preload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preload.json; sourceTree = "<group>"; };
+		07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EagleTrail.swift"; sourceTree = "<group>"; };
+		07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+EagleTrail.swift"; sourceTree = "<group>"; };
+		07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		07D8094E22E799F9005DC731 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		07E4996822E69F220042B4AD /* EagleTrail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EagleTrail.xcdatamodel; sourceTree = "<group>"; };
+		5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eagle_Trail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77A65079417B4DFED9256B7A /* Pods-Eagle Trail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Trail.debug.xcconfig"; path = "Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail.debug.xcconfig"; sourceTree = "<group>"; };
+		F33BC87C78E2055941D7C219 /* Pods-Eagle Trail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Trail.release.xcconfig"; path = "Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		073DEA2622E650E800FFBE24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FB6E1F7800A344C87043A2B /* Pods_Eagle_Trail.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		072D45C522E7C6A500246334 /* Ranks */ = {
+			isa = PBXGroup;
+			children = (
+				072D45CF22E7C84100246334 /* RankTableViewController.swift */,
+				072D45D122E7C91400246334 /* RankDetailViewController.swift */,
+			);
+			path = Ranks;
+			sourceTree = "<group>";
+		};
+		072D45C822E7C72B00246334 /* Ranks */ = {
+			isa = PBXGroup;
+			children = (
+				072D45C922E7C73900246334 /* RankTableViewCell.xib */,
+				072D45CB22E7C74500246334 /* RankTableViewCell.swift */,
+			);
+			path = Ranks;
+			sourceTree = "<group>";
+		};
+		073DEA2022E650E800FFBE24 = {
+			isa = PBXGroup;
+			children = (
+				073DEA2B22E650E800FFBE24 /* eagle-trail */,
+				073DEA2A22E650E800FFBE24 /* Products */,
+				9EA9F87760CF71DB5E6B0FD1 /* Pods */,
+				3A3A58DED15A18A4C961573A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		073DEA2A22E650E800FFBE24 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				073DEA2922E650E800FFBE24 /* Eagle Trail.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		073DEA2B22E650E800FFBE24 /* eagle-trail */ = {
+			isa = PBXGroup;
+			children = (
+				073DEA2C22E650E800FFBE24 /* AppDelegate.swift */,
+				073DEA3E22E6511D00FFBE24 /* View Controllers */,
+				073DEA3F22E6512300FFBE24 /* Views */,
+				073DEA4022E6512700FFBE24 /* Core Data */,
+				073DEA4122E6512F00FFBE24 /* Extensions */,
+				073DEA4222E6513400FFBE24 /* Resources */,
+			);
+			path = "eagle-trail";
+			sourceTree = "<group>";
+		};
+		073DEA3E22E6511D00FFBE24 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				072D45C522E7C6A500246334 /* Ranks */,
+				0772525122E6CA9900B2C1F9 /* Merit Badges */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		073DEA3F22E6512300FFBE24 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07D8094D22E799F9005DC731 /* Protocols */,
+				072D45C822E7C72B00246334 /* Ranks */,
+				073DEA4D22E65BDB00FFBE24 /* Merit Badges */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		073DEA4022E6512700FFBE24 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				07E4996722E69F220042B4AD /* EagleTrail.xcdatamodeld */,
+				07A1F7AC22E998C2004EE52F /* CoreDataManager.swift */,
+				07A1F7AE22EA3325004EE52F /* preload.json */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		073DEA4122E6512F00FFBE24 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */,
+				07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */,
+				07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		073DEA4222E6513400FFBE24 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				073DEA3322E650E900FFBE24 /* Assets.xcassets */,
+				073DEA3522E650E900FFBE24 /* LaunchScreen.storyboard */,
+				073DEA3822E650E900FFBE24 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		073DEA4D22E65BDB00FFBE24 /* Merit Badges */ = {
+			isa = PBXGroup;
+			children = (
+				073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */,
+				073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */,
+			);
+			path = "Merit Badges";
+			sourceTree = "<group>";
+		};
+		0772525122E6CA9900B2C1F9 /* Merit Badges */ = {
+			isa = PBXGroup;
+			children = (
+				073DEA4322E6533100FFBE24 /* MeritBadgeTableViewController.swift */,
+				0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */,
+			);
+			path = "Merit Badges";
+			sourceTree = "<group>";
+		};
+		07D8094D22E799F9005DC731 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				07D8094E22E799F9005DC731 /* Reusable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		3A3A58DED15A18A4C961573A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EA9F87760CF71DB5E6B0FD1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77A65079417B4DFED9256B7A /* Pods-Eagle Trail.debug.xcconfig */,
+				F33BC87C78E2055941D7C219 /* Pods-Eagle Trail.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		073DEA2822E650E800FFBE24 /* Eagle Trail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 073DEA3B22E650E900FFBE24 /* Build configuration list for PBXNativeTarget "Eagle Trail" */;
+			buildPhases = (
+				C0429066217087AD2CFD6D58 /* [CP] Check Pods Manifest.lock */,
+				073DEA2522E650E800FFBE24 /* Sources */,
+				073DEA2622E650E800FFBE24 /* Frameworks */,
+				073DEA2722E650E800FFBE24 /* Resources */,
+				5CE6AB47B406361413372939 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Eagle Trail";
+			productName = "Merit Badge Tracker";
+			productReference = 073DEA2922E650E800FFBE24 /* Eagle Trail.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		073DEA2122E650E800FFBE24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Hyunjung Lee";
+				TargetAttributes = {
+					073DEA2822E650E800FFBE24 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 073DEA2422E650E800FFBE24 /* Build configuration list for PBXProject "eagle-trail" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 073DEA2022E650E800FFBE24;
+			productRefGroup = 073DEA2A22E650E800FFBE24 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				073DEA2822E650E800FFBE24 /* Eagle Trail */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		073DEA2722E650E800FFBE24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				073DEA3722E650E900FFBE24 /* LaunchScreen.storyboard in Resources */,
+				072D45CA22E7C73900246334 /* RankTableViewCell.xib in Resources */,
+				073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */,
+				07A1F7AF22EA3325004EE52F /* preload.json in Resources */,
+				073DEA3422E650E900FFBE24 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5CE6AB47B406361413372939 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0429066217087AD2CFD6D58 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Eagle Trail-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		073DEA2522E650E800FFBE24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				073DEA4422E6533100FFBE24 /* MeritBadgeTableViewController.swift in Sources */,
+				07E4996922E69F220042B4AD /* EagleTrail.xcdatamodeld in Sources */,
+				0772525322E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift in Sources */,
+				073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */,
+				07A1F7AD22E998C2004EE52F /* CoreDataManager.swift in Sources */,
+				072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */,
+				07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */,
+				072D45D222E7C91400246334 /* RankDetailViewController.swift in Sources */,
+				07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */,
+				07D8094C22E799E4005DC731 /* UITableView+Reusable.swift in Sources */,
+				072D45D022E7C84100246334 /* RankTableViewController.swift in Sources */,
+				073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */,
+				07D8094F22E799F9005DC731 /* Reusable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		073DEA3522E650E900FFBE24 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				073DEA3622E650E900FFBE24 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		073DEA3922E650E900FFBE24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		073DEA3A22E650E900FFBE24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		073DEA3C22E650E900FFBE24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A65079417B4DFED9256B7A /* Pods-Eagle Trail.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GF62QU9N35;
+				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewmin.eagle-trail";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		073DEA3D22E650E900FFBE24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F33BC87C78E2055941D7C219 /* Pods-Eagle Trail.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GF62QU9N35;
+				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewmin.eagle-trail";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		073DEA2422E650E800FFBE24 /* Build configuration list for PBXProject "eagle-trail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				073DEA3922E650E900FFBE24 /* Debug */,
+				073DEA3A22E650E900FFBE24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		073DEA3B22E650E900FFBE24 /* Build configuration list for PBXNativeTarget "Eagle Trail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				073DEA3C22E650E900FFBE24 /* Debug */,
+				073DEA3D22E650E900FFBE24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		07E4996722E69F220042B4AD /* EagleTrail.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				07E4996822E69F220042B4AD /* EagleTrail.xcdatamodel */,
+			);
+			currentVersion = 07E4996822E69F220042B4AD /* EagleTrail.xcdatamodel */;
+			path = EagleTrail.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 073DEA2122E650E800FFBE24 /* Project object */;
+}

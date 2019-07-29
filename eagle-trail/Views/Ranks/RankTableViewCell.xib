@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="108" id="4vQ-aP-k9g" userLabel="Rank Table View Cell" customClass="RankTableViewCell" customModule="Eagle_Trail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4vQ-aP-k9g" id="mr4-H3-noN">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="107.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LGX-wI-0cl">
+                        <rect key="frame" x="16" y="0.0" width="344" height="104"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-fd-TlU" userLabel="Badge">
+                                <rect key="frame" x="0.0" y="10" width="67" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gWa-fd-TlU" secondAttribute="height" multiplier="4:5" id="7rY-64-pXq"/>
+                                    <constraint firstAttribute="height" constant="84" id="raU-78-gcs"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Scout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tK-Kl-gGw" userLabel="Name">
+                                <rect key="frame" x="83" y="8" width="261" height="88"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gWa-fd-TlU" secondAttribute="bottom" constant="10" id="1Gz-V3-eKk"/>
+                            <constraint firstItem="gWa-fd-TlU" firstAttribute="top" secondItem="LGX-wI-0cl" secondAttribute="top" constant="10" id="3xT-Lj-6lX"/>
+                            <constraint firstItem="1tK-Kl-gGw" firstAttribute="top" secondItem="LGX-wI-0cl" secondAttribute="top" constant="8" id="5cy-sI-HLG"/>
+                            <constraint firstAttribute="bottom" secondItem="1tK-Kl-gGw" secondAttribute="bottom" constant="8" id="gp8-cS-4OL"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="LGX-wI-0cl" secondAttribute="bottom" id="OjY-OD-RgL"/>
+                    <constraint firstItem="LGX-wI-0cl" firstAttribute="top" secondItem="mr4-H3-noN" secondAttribute="top" id="Sef-aQ-ft7"/>
+                    <constraint firstAttribute="trailing" secondItem="LGX-wI-0cl" secondAttribute="trailing" constant="16" id="XuX-oq-xg9"/>
+                    <constraint firstItem="LGX-wI-0cl" firstAttribute="leading" secondItem="mr4-H3-noN" secondAttribute="leading" constant="16" id="uBx-jK-eTx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="badgeImageView" destination="gWa-fd-TlU" id="s5Q-2h-86i"/>
+                <outlet property="nameLabel" destination="1tK-Kl-gGw" id="eJc-dU-gWa"/>
+            </connections>
+            <point key="canvasLocation" x="-130.43478260869566" y="89.732142857142847"/>
+        </tableViewCell>
+    </objects>
+</document>
