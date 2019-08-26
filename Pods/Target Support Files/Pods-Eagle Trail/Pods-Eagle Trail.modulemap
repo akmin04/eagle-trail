@@ -1,6 +1,0 @@
-framework module Pods_Eagle_Trail {
-  umbrella header "Pods-Eagle Trail-umbrella.h"
-
-  export *
-  module * { export * }
-}
