@@ -1,19 +1,24 @@
 import UIKit
-import CoreData
+import RealmSwift
+import os.log
+
+typealias Preload = [String : AnyObject]
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // MARK: - View Hierarchy
+    // MARK: - Private Properties
     
-    var window: UIWindow?
+    private let realm = try! Realm()
     
-    lazy private var rootViewController: UITabBarController = { [unowned self] in
+    lazy private var preload = getPreload(force: false)
+    
+    lazy private var rootViewController: UITabBarController = {
         let tabBarController = UITabBarController()
         
         let viewControllers = [
-            RankTableViewController(),
-            MeritBadgeTableViewController()
+            RankTableViewController(realm: realm, preload: preload),
+            MeritBadgeTableViewController(realm: realm, preload: preload)
         ]
         
         tabBarController.viewControllers = viewControllers.map {
@@ -24,12 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return tabBarController
     }()
     
+    // MARK: - View Hierarchy
+    
+    var window: UIWindow?
+    
     // MARK: - Application Lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        loadData()
-        
         window = UIWindow()
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
@@ -60,50 +66,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Private Methods
     
-    private func loadData(force: Bool = false) {
-        
-        if !force, let _ = UserDefaults.standard.object(forKey: "initialDataLoaded") {
-            return
+    private func getPreload(force: Bool = false) -> Preload? {
+        if !force && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
+            return nil
         }
         
-        CoreDataManager.shared.deleteAllEntities()
-        print("Fetching preload data")
+        if force {
+            os_log("Forcing preload data. Deleting all objects", type: .debug)
+            try! realm.write {
+                realm.deleteAll()
+            }
+        }
+        
         UserDefaults.standard.set(true, forKey: "initialDataLoaded")
         
         guard let path = Bundle.main.path(forResource: "preload", ofType: "json") else {
-            print("Unable to find preload file")
-            return
+            fatalError("Unable to find preload file")
         }
         
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            
-            guard let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : AnyObject] else {
-                return
-            }
-            
-            if let ranksJSON = jsonResult["ranks"] as? [AnyObject] {
-                for rank in ranksJSON {
-                    guard let rank = rank as? [String : AnyObject] else { continue }
-                    let _: Rank? = CoreDataManager.shared.save(keyValues: [
-                        "name": (rank["name"] as! CFString) as String
-                    ])
-                }
-            }
-            
-            if let meritBadgesJSON = jsonResult["meritBadges"] as? [AnyObject] {
-                for meritBadge in meritBadgesJSON {
-                    guard let meritBadge = meritBadge as? [String : AnyObject] else { continue }
-                    let _: MeritBadge? = CoreDataManager.shared.save(keyValues: [
-                        "isEagle": (meritBadge["isEagle"] as! CFBoolean) as! Bool,
-                        "name": (meritBadge["name"] as! CFString) as String
-                    ])
-                }
-            }
-        } catch {
-            print("Unable to get contents of file")
-        }
+        let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        
+        let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : AnyObject]
+        
+        return jsonResult
     }
-    
 }
 

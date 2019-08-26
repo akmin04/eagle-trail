@@ -1,10 +1,13 @@
-import CoreData
-import SnapKit
 import UIKit
+import SnapKit
+import RealmSwift
+import os.log
 
 class MeritBadgeTableViewController: UIViewController {
     
     // MARK: - Private Properties
+    
+    private var realm: Realm!
     
     private var meritBadges: [MeritBadge]!
     private var favoriteMeritBadges: [MeritBadge]!
@@ -36,9 +39,30 @@ class MeritBadgeTableViewController: UIViewController {
     
     // MARK: - Init
     
-    init() {
+    init(realm: Realm, preload: Preload?) {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(title: "Merit Badges", image: UIImage.meritBadge, tag: 1)
+        
+        self.realm = realm
+        
+        if let preload = preload {
+            os_log("Loading merit badge preload", type: .info)
+            
+            if let meritBadges = preload["meritBadges"] as? [AnyObject] {
+                for data in meritBadges {
+                    guard let data = data as? [String : AnyObject] else { continue }
+                    
+                    try! realm.write {
+                        let meritBadge = MeritBadge()
+                        meritBadge.isEagle = data["isEagle"] as! CFBoolean as! Bool
+                        meritBadge.name = data["name"] as! String
+                        realm.add(meritBadge)
+                    }
+                }
+            }
+        }
+        
+        meritBadges = Array(realm.objects(MeritBadge.self))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -51,7 +75,6 @@ class MeritBadgeTableViewController: UIViewController {
         super.viewDidLoad()
         definesPresentationContext = true
         
-        meritBadges = CoreDataManager.shared.fetch()
         sortMeritBadges()
         
         navigationItem.title = "Merit Badges"
@@ -76,7 +99,7 @@ class MeritBadgeTableViewController: UIViewController {
     private func sortMeritBadges() {
         
         meritBadges.sort { (b1, b2) in
-            b1.name! < b2.name!
+            b1.name < b2.name
         }
         
         favoriteMeritBadges = [MeritBadge]()
@@ -91,7 +114,7 @@ class MeritBadgeTableViewController: UIViewController {
             if meritBadge.isEagle {
                 eagleMeritBadges.append(meritBadge)
             }
-            alphabetizedMeritBadges[toAscii(meritBadge.name!.first!) - 65].append(meritBadge)
+            alphabetizedMeritBadges[toAscii(meritBadge.name.first!) - 65].append(meritBadge)
         }
         
         favoriteMeritBadges.sort { (b1, b2) in
@@ -102,7 +125,7 @@ class MeritBadgeTableViewController: UIViewController {
     private func isFiltering() -> Bool {
         return searchController.isActive && !(searchController.searchBar.text?.isEmpty ?? true)
     }
-
+    
     private func toAscii(_ char: Character) -> Int {
         return Int(UnicodeScalar(String(char))!.value)
     }
@@ -190,17 +213,16 @@ extension MeritBadgeTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return indexPath.section == 0 && !isFiltering()
     }
-
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = meritBadgeAt(sourceIndexPath)
         favoriteMeritBadges.remove(at: sourceIndexPath.row)
         favoriteMeritBadges.insert(movedObject, at: destinationIndexPath.row)
         
         for (i, meritBadge) in favoriteMeritBadges.enumerated() {
-            meritBadge.favoriteIndex = Int16(i)
-            CoreDataManager.shared.update(entity: meritBadge, keyValues: [
-                "favoriteIndex": i
-            ])
+            try! realm.write {
+                meritBadge.favoriteIndex = i
+            }
         }
     }
     
@@ -214,7 +236,7 @@ extension MeritBadgeTableViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         filteredMeritBadges = meritBadges.filter {
-            $0.name!.lowercased().contains(searchController.searchBar.text!.lowercased())
+            $0.name.lowercased().contains(searchController.searchBar.text!.lowercased())
         }
         tableView.reloadData()
     }
@@ -226,14 +248,14 @@ extension MeritBadgeTableViewController: MeritBadgeCellDelegate {
     func toggleFavorite(indexPath: IndexPath) {
         let meritBadge = meritBadgeAt(indexPath)
         
-        CoreDataManager.shared.update(entity: meritBadge, keyValues: [
-            "favoriteIndex": meritBadge.favoriteIndex == -1 ? favoriteMeritBadges.count : -1
-        ])
+        try! realm.write {
+            meritBadge.favoriteIndex = (meritBadge.favoriteIndex == -1) ? favoriteMeritBadges.count : -1
+        }
         
         if let cell = tableView.cellForRow(at: indexPath) as! MeritBadgeTableViewCell? {
             cell.update(meritBadge: meritBadge)
         }
-       
+        
         sortMeritBadges()
         tableView.reloadData()
     }

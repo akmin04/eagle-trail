@@ -1,10 +1,13 @@
-import CoreData
-import SnapKit
 import UIKit
+import SnapKit
+import RealmSwift
+import os.log
 
 class RankTableViewController: UIViewController {
     
     // MARK: - Private Properties
+    
+    private var realm: Realm!
     
     private var ranks: [Rank]!
     
@@ -19,9 +22,29 @@ class RankTableViewController: UIViewController {
     
     // MARK: - Init
     
-    init() {
+    init(realm: Realm, preload: Preload?) {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(title: "Ranks", image: UIImage.rank, tag: 0)
+        
+        self.realm = realm
+        
+        if let preload = preload {
+            os_log("Loading rank preload", type: .info)
+            
+            if let ranks = preload["ranks"] as? [AnyObject] {
+                for data in ranks {
+                    guard let data = data as? [String : AnyObject] else { continue }
+                    
+                    try! realm.write {
+                        let rank = Rank()
+                        rank.name = data["name"] as! String
+                        realm.add(rank)
+                    }
+                }
+            }
+        }
+        
+        ranks = Array(realm.objects(Rank.self))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,8 +55,6 @@ class RankTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ranks = CoreDataManager.shared.fetch()
         
         navigationItem.title = "Ranks"
         

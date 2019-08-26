@@ -18,13 +18,13 @@
 		073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */; };
 		073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */; };
 		0772525322E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */; };
-		07A1F7AD22E998C2004EE52F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A1F7AC22E998C2004EE52F /* CoreDataManager.swift */; };
+		07919D1423136CCB00896CDD /* MeritBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07919D1323136CCB00896CDD /* MeritBadge.swift */; };
+		07919D1623136D3D00896CDD /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07919D1523136D3D00896CDD /* Rank.swift */; };
 		07A1F7AF22EA3325004EE52F /* preload.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A1F7AE22EA3325004EE52F /* preload.json */; };
 		07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */; };
 		07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */; };
 		07D8094C22E799E4005DC731 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */; };
 		07D8094F22E799F9005DC731 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094E22E799F9005DC731 /* Reusable.swift */; };
-		07E4996922E69F220042B4AD /* EagleTrail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 07E4996722E69F220042B4AD /* EagleTrail.xcdatamodeld */; };
 		4FB6E1F7800A344C87043A2B /* Pods_Eagle_Trail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,13 +42,13 @@
 		073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeTableViewCell.swift; sourceTree = "<group>"; };
 		073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeritBadgeTableViewCell.xib; sourceTree = "<group>"; };
 		0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeDetailViewController.swift; sourceTree = "<group>"; };
-		07A1F7AC22E998C2004EE52F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		07919D1323136CCB00896CDD /* MeritBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadge.swift; sourceTree = "<group>"; };
+		07919D1523136D3D00896CDD /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		07A1F7AE22EA3325004EE52F /* preload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preload.json; sourceTree = "<group>"; };
 		07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EagleTrail.swift"; sourceTree = "<group>"; };
 		07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+EagleTrail.swift"; sourceTree = "<group>"; };
 		07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
 		07D8094E22E799F9005DC731 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		07E4996822E69F220042B4AD /* EagleTrail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EagleTrail.xcdatamodel; sourceTree = "<group>"; };
 		5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eagle_Trail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A65079417B4DFED9256B7A /* Pods-Eagle Trail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Trail.debug.xcconfig"; path = "Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail.debug.xcconfig"; sourceTree = "<group>"; };
 		F33BC87C78E2055941D7C219 /* Pods-Eagle Trail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Trail.release.xcconfig"; path = "Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail.release.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 				073DEA2C22E650E800FFBE24 /* AppDelegate.swift */,
 				073DEA3E22E6511D00FFBE24 /* View Controllers */,
 				073DEA3F22E6512300FFBE24 /* Views */,
-				073DEA4022E6512700FFBE24 /* Core Data */,
+				073DEA4022E6512700FFBE24 /* Models */,
 				073DEA4122E6512F00FFBE24 /* Extensions */,
 				073DEA4222E6513400FFBE24 /* Resources */,
 			);
@@ -134,14 +134,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		073DEA4022E6512700FFBE24 /* Core Data */ = {
+		073DEA4022E6512700FFBE24 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				07E4996722E69F220042B4AD /* EagleTrail.xcdatamodeld */,
-				07A1F7AC22E998C2004EE52F /* CoreDataManager.swift */,
 				07A1F7AE22EA3325004EE52F /* preload.json */,
+				07919D1323136CCB00896CDD /* MeritBadge.swift */,
+				07919D1523136D3D00896CDD /* Rank.swift */,
 			);
-			path = "Core Data";
+			path = Models;
 			sourceTree = "<group>";
 		};
 		073DEA4122E6512F00FFBE24 /* Extensions */ = {
@@ -325,16 +325,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				073DEA4422E6533100FFBE24 /* MeritBadgeTableViewController.swift in Sources */,
-				07E4996922E69F220042B4AD /* EagleTrail.xcdatamodeld in Sources */,
 				0772525322E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift in Sources */,
 				073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */,
-				07A1F7AD22E998C2004EE52F /* CoreDataManager.swift in Sources */,
 				072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */,
+				07919D1623136D3D00896CDD /* Rank.swift in Sources */,
 				07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */,
 				072D45D222E7C91400246334 /* RankDetailViewController.swift in Sources */,
 				07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */,
 				07D8094C22E799E4005DC731 /* UITableView+Reusable.swift in Sources */,
 				072D45D022E7C84100246334 /* RankTableViewController.swift in Sources */,
+				07919D1423136CCB00896CDD /* MeritBadge.swift in Sources */,
 				073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */,
 				07D8094F22E799F9005DC731 /* Reusable.swift in Sources */,
 			);
@@ -532,19 +532,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		07E4996722E69F220042B4AD /* EagleTrail.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				07E4996822E69F220042B4AD /* EagleTrail.xcdatamodel */,
-			);
-			currentVersion = 07E4996822E69F220042B4AD /* EagleTrail.xcdatamodel */;
-			path = EagleTrail.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 073DEA2122E650E800FFBE24 /* Project object */;
 }

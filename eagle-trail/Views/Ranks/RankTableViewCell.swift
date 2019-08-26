@@ -11,10 +11,7 @@ class RankTableViewCell: UITableViewCell, Reusable {
     
     func setup(rank: Rank) {
         nameLabel.text = rank.name
-        
-        if let name = rank.name {
-            badgeImageView.image = UIImage.rankBadge(name: name)
-        }
+        badgeImageView.image = UIImage.rankBadge(name: rank.name)
     }
     
 }
