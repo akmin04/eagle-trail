@@ -19,7 +19,6 @@ class MeritBadgeTableViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
         tableView.registerReusableCell(MeritBadgeTableViewCell.self)
         return tableView
     }()
@@ -73,7 +72,6 @@ class MeritBadgeTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        definesPresentationContext = true
         
         sortMeritBadges()
         
@@ -82,7 +80,6 @@ class MeritBadgeTableViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
@@ -97,7 +94,6 @@ class MeritBadgeTableViewController: UIViewController {
     // MARK: - Private Methods
     
     private func sortMeritBadges() {
-        
         meritBadges.sort { (b1, b2) in
             b1.name < b2.name
         }

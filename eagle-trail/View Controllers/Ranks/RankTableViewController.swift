@@ -15,7 +15,6 @@ class RankTableViewController: UIViewController {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .white
         tableView.registerReusableCell(RankTableViewCell.self)
         return tableView
     }()
@@ -58,7 +57,6 @@ class RankTableViewController: UIViewController {
         
         navigationItem.title = "Ranks"
         
-        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)

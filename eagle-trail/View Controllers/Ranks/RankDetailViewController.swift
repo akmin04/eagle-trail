@@ -1,10 +1,16 @@
 import UIKit
+import SnapKit
 
 class RankDetailViewController: UIViewController {
     
     // MARK: - Private Properties
     
     private var rank: Rank!
+    
+    lazy private var tableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
     
     // MARK: - Init
     
@@ -24,6 +30,9 @@ class RankDetailViewController: UIViewController {
         
         navigationItem.title = rank.name
         
-        view.backgroundColor = .white
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view)
+        }
     }
 }
