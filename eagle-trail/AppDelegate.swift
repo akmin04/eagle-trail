@@ -1,8 +1,7 @@
 import UIKit
 import RealmSwift
+import SwiftyJSON
 import os.log
-
-typealias Preload = [String : AnyObject]
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
         
         let viewControllers = [
-            RankTableViewController(realm: realm, preload: preload),
-            MeritBadgeTableViewController(realm: realm, preload: preload)
+            RanksTableViewController(realm: realm, preload: preload),
+            MeritBadgesTableViewController(realm: realm, preload: preload)
         ]
         
         tabBarController.viewControllers = viewControllers.map {
@@ -66,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Private Methods
     
-    private func getPreload(force: Bool = false) -> Preload? {
+    private func getPreload(force: Bool = false) -> JSON? {
         if !force && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
             return nil
         }
@@ -84,9 +83,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             fatalError("Unable to find preload file")
         }
         
-        let data = try! Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        
-        let jsonResult = try! JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String : AnyObject]
+        let jsonString = try! String(contentsOfFile: path, encoding: .utf8)
+        let jsonResult = JSON(parseJSON: jsonString)
         
         return jsonResult
     }

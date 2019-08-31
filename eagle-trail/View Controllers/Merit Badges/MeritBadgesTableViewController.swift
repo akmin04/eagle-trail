@@ -1,9 +1,10 @@
 import UIKit
-import SnapKit
 import RealmSwift
+import SnapKit
+import SwiftyJSON
 import os.log
 
-class MeritBadgeTableViewController: UIViewController {
+class MeritBadgesTableViewController: UIViewController {
     
     // MARK: - Private Properties
     
@@ -38,7 +39,7 @@ class MeritBadgeTableViewController: UIViewController {
     
     // MARK: - Init
     
-    init(realm: Realm, preload: Preload?) {
+    init(realm: Realm, preload: JSON?) {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(title: "Merit Badges", image: UIImage.meritBadge, tag: 1)
         
@@ -47,16 +48,20 @@ class MeritBadgeTableViewController: UIViewController {
         if let preload = preload {
             os_log("Loading merit badge preload", type: .info)
             
-            if let meritBadges = preload["meritBadges"] as? [AnyObject] {
-                for data in meritBadges {
-                    guard let data = data as? [String : AnyObject] else { continue }
+            for data in preload["meritBadges"].arrayValue {
+                try! realm.write {
+                    let meritBadge = MeritBadge()
+                    meritBadge.isEagle = data["isEagle"].boolValue
+                    meritBadge.name = data["name"].stringValue
                     
-                    try! realm.write {
-                        let meritBadge = MeritBadge()
-                        meritBadge.isEagle = data["isEagle"] as! CFBoolean as! Bool
-                        meritBadge.name = data["name"] as! String
-                        realm.add(meritBadge)
+                    for data in data["requirements"].arrayValue {
+                        let requirement = Requirement()
+                        requirement.depth = data["depth"].intValue
+                        requirement.index = data["index"].stringValue
+                        requirement.text = data["text"].stringValue
+                        meritBadge.requirements.append(requirement)
                     }
+                    realm.add(meritBadge)
                 }
             }
         }
@@ -162,7 +167,7 @@ class MeritBadgeTableViewController: UIViewController {
     
 }
 
-extension MeritBadgeTableViewController: UITableViewDelegate {
+extension MeritBadgesTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -186,7 +191,7 @@ extension MeritBadgeTableViewController: UITableViewDelegate {
     
 }
 
-extension MeritBadgeTableViewController: UITableViewDataSource {
+extension MeritBadgesTableViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return isFiltering() ? 1 : 28
@@ -228,7 +233,7 @@ extension MeritBadgeTableViewController: UITableViewDataSource {
     
 }
 
-extension MeritBadgeTableViewController: UISearchResultsUpdating {
+extension MeritBadgesTableViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         filteredMeritBadges = meritBadges.filter {
@@ -239,7 +244,7 @@ extension MeritBadgeTableViewController: UISearchResultsUpdating {
     
 }
 
-extension MeritBadgeTableViewController: MeritBadgeCellDelegate {
+extension MeritBadgesTableViewController: MeritBadgeCellDelegate {
     
     func toggleFavorite(indexPath: IndexPath) {
         let meritBadge = meritBadgeAt(indexPath)

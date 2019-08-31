@@ -1,9 +1,10 @@
 import UIKit
-import SnapKit
 import RealmSwift
+import SnapKit
+import SwiftyJSON
 import os.log
 
-class RankTableViewController: UIViewController {
+class RanksTableViewController: UIViewController {
     
     // MARK: - Private Properties
     
@@ -21,7 +22,7 @@ class RankTableViewController: UIViewController {
     
     // MARK: - Init
     
-    init(realm: Realm, preload: Preload?) {
+    init(realm: Realm, preload: JSON?) {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(title: "Ranks", image: UIImage.rank, tag: 0)
         
@@ -30,15 +31,19 @@ class RankTableViewController: UIViewController {
         if let preload = preload {
             os_log("Loading rank preload", type: .info)
             
-            if let ranks = preload["ranks"] as? [AnyObject] {
-                for data in ranks {
-                    guard let data = data as? [String : AnyObject] else { continue }
+            for data in preload["ranks"].arrayValue {
+                try! realm.write {
+                    let rank = Rank()
+                    rank.name = data["name"].stringValue
                     
-                    try! realm.write {
-                        let rank = Rank()
-                        rank.name = data["name"] as! String
-                        realm.add(rank)
+                    for data in data["requirements"].arrayValue {
+                        let requirement = Requirement()
+                        requirement.depth = data["depth"].intValue
+                        requirement.index = data["index"].stringValue
+                        requirement.text = data["text"].stringValue
+                        rank.requirements.append(requirement)
                     }
+                    realm.add(rank)
                 }
             }
         }
@@ -65,7 +70,7 @@ class RankTableViewController: UIViewController {
     
 }
 
-extension RankTableViewController: UITableViewDelegate {
+extension RanksTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -74,7 +79,7 @@ extension RankTableViewController: UITableViewDelegate {
     
 }
 
-extension RankTableViewController: UITableViewDataSource {
+extension RanksTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ranks.count
