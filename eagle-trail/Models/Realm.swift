@@ -4,6 +4,7 @@ class Requirement: Object {
     @objc dynamic var depth = 0
     @objc dynamic var index = ""
     @objc dynamic var text = ""
+    @objc dynamic var isComplete = false
 }
 
 class Rank: Object {

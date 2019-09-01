@@ -1,8 +1,13 @@
+'''
+For each rank and merit badge in preload.json, get the raw HTML of the corresponding scoutbook page.
+By looking for tables and lists, we can extract each requirement and add them to the preload.json.
+'''
+
 import bs4
-import requests
 import json
 import os.path
 import re
+import requests
 
 preload_file = "../eagle-trail/Models/preload.json"
 
@@ -16,6 +21,7 @@ regex = re.compile('[^a-z0-9]')
 RANK = 0
 MERIT_BADGE = 1
 
+# Either a rank or a merit badge
 class Badge(object):
 
     def __init__(self, name, i, type, json):
@@ -63,6 +69,7 @@ def main():
                 json.dump(preload, file, indent=4)
                 file.truncate()
         
+# Get all requirements for a rank/merit badge, parse the HTML, and add them to the JSON.
 def parse(badge, skip):
     if len(badge.json['requirements']) > 0 and skip:
         print("Skipping " + badge.original_name)
@@ -81,7 +88,7 @@ def parse(badge, skip):
     for row in rows:
         parse_row(0, row, badge)
 
-
+# Parse a table row.
 def parse_row(depth, row, badge):
     cells = row.find_all('td')
 
@@ -119,7 +126,7 @@ def parse_row(depth, row, badge):
     if row.find('ol'):
         parse_list('ol', depth + 1, row, badge)
 
-
+# Parse an unordered or ordered list.
 def parse_list(tag, depth, req, badge):
     rows = req.find(tag).find_all('li', recursive=False)
 
@@ -130,6 +137,7 @@ def parse_list(tag, depth, req, badge):
             'text': row.contents[0].strip()
         })
 
+# Ask the user for yes or no.
 def yes_no():
     return True if input() == 'y' else False
 

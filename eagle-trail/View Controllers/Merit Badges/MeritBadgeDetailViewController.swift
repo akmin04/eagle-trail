@@ -1,12 +1,13 @@
-import UIKit
 import SnapKit
+import UIKit
+import RealmSwift
 
 class MeritBadgeDetailViewController: RequirementsTableViewController {
     
     // MARK: - Init
     
-    init(meritBadge: MeritBadge) {
-        super.init(name: meritBadge.name, requirements: Array(meritBadge.requirements))
+    init(meritBadge: MeritBadge, realm: Realm) {
+        super.init(name: meritBadge.name, requirements: Array(meritBadge.requirements), realm: realm)
     }
     
     required init?(coder aDecoder: NSCoder) {

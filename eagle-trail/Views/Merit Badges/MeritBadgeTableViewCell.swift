@@ -12,12 +12,12 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable {
     @IBOutlet weak var favoriteButton: UIButton!
     
     @IBAction func favoriteButtonPressed(_ sender: Any) {
-        delegate?.toggleFavorite(indexPath: indexPath)
+        delegate.toggleFavorite(indexPath: indexPath)
     }
     
     // MARK: - Private Properties
     
-    private var delegate: MeritBadgeCellDelegate?
+    private var delegate: MeritBadgeCellDelegate!
     private var indexPath: IndexPath!
     
     // MARK: - Public Methods

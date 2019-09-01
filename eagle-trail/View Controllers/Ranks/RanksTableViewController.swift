@@ -74,7 +74,7 @@ extension RanksTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(RankDetailViewController(rank: ranks[indexPath.row]), animated: true)
+        navigationController?.pushViewController(RankDetailViewController(rank: ranks[indexPath.row], realm: realm), animated: true)
     }
     
 }
