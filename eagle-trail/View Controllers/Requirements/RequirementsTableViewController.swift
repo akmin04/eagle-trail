@@ -1,8 +1,8 @@
+import os.log
 import RealmSwift
 import SnapKit
 import SwiftyJSON
 import UIKit
-import os.log
 
 class RequirementsTableViewController: UIViewController {
     

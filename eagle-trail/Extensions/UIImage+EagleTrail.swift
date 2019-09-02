@@ -8,7 +8,7 @@ extension UIImage {
     
     static var meritBadge: UIImage { return UIImage(named: "merit-badge")! }
     
-    static func rankBadge(name: String) -> UIImage{
+    static func rankBadge(name: String) -> UIImage {
         return UIImage(named: name.lowercased().replacingOccurrences(of: " ", with: "-"))!
     }
     

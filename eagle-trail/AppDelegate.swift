@@ -1,7 +1,7 @@
-import UIKit
+import os.log
 import RealmSwift
 import SwiftyJSON
-import os.log
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

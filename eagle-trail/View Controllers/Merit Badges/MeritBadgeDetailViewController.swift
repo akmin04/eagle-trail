@@ -1,6 +1,6 @@
+import RealmSwift
 import SnapKit
 import UIKit
-import RealmSwift
 
 class MeritBadgeDetailViewController: RequirementsTableViewController {
     

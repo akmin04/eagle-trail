@@ -1,8 +1,8 @@
-import UIKit
+import os.log
 import RealmSwift
 import SnapKit
 import SwiftyJSON
-import os.log
+import UIKit
 
 class RanksTableViewController: UIViewController {
     
