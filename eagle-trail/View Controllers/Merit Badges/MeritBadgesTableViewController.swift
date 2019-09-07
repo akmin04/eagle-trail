@@ -14,6 +14,7 @@ class MeritBadgesTableViewController: UIViewController {
     private var favoriteMeritBadges: [MeritBadge]!
     private var eagleMeritBadges: [MeritBadge]!
     private var alphabetizedMeritBadges: [[MeritBadge]]!
+    private var completedMeritBadges: [MeritBadge]!
     private var filteredMeritBadges: [MeritBadge]!
     
     lazy private var tableView: UITableView = {
@@ -33,7 +34,7 @@ class MeritBadgesTableViewController: UIViewController {
     }()
     
     lazy private var sections: [String] = {
-        var sections = ["Favorites", "Eagle Required"] + (65...90).map { fromAscii($0) }
+        let sections = ["Favorites", "Eagle Required"] + (65...90).map { fromAscii($0) } + ["Completed"]
         return sections
     }()
     
@@ -59,6 +60,9 @@ class MeritBadgesTableViewController: UIViewController {
                         requirement.depth = data["depth"].intValue
                         requirement.index = data["index"].stringValue
                         requirement.text = data["text"].stringValue
+                        if requirement.depth == 0 {
+                            requirement.parentMeritBadge = meritBadge
+                        }
                         meritBadge.requirements.append(requirement)
                     }
                     realm.add(meritBadge)
@@ -78,17 +82,23 @@ class MeritBadgesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sortMeritBadges()
-        
         navigationItem.title = "Merit Badges"
         navigationItem.rightBarButtonItem = editButtonItem
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
+        sortMeritBadges()
+        
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sortMeritBadges()
+        tableView.reloadData()
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -99,27 +109,17 @@ class MeritBadgesTableViewController: UIViewController {
     // MARK: - Private Methods
     
     private func sortMeritBadges() {
-        meritBadges.sort { (b1, b2) in
-            b1.name < b2.name
-        }
+        meritBadges.sort { $0.name < $1.name }
         
-        favoriteMeritBadges = [MeritBadge]()
-        eagleMeritBadges = [MeritBadge]()
+        eagleMeritBadges = meritBadges.filter { $0.isEagle }
+        completedMeritBadges = meritBadges.filter { $0.isComplete }
         alphabetizedMeritBadges = Array(repeating: [MeritBadge](), count: 26)
+        favoriteMeritBadges = meritBadges
+            .filter { $0.favoriteIndex != -1 }
+            .sorted { (b1, b2) in b1.favoriteIndex < b2.favoriteIndex}
         
         for meritBadge in meritBadges {
-            if meritBadge.favoriteIndex != -1 {
-                favoriteMeritBadges.append(meritBadge)
-            }
-            
-            if meritBadge.isEagle {
-                eagleMeritBadges.append(meritBadge)
-            }
             alphabetizedMeritBadges[toAscii(meritBadge.name.first!) - 65].append(meritBadge)
-        }
-        
-        favoriteMeritBadges.sort { (b1, b2) in
-            b1.favoriteIndex < b2.favoriteIndex
         }
     }
     
@@ -145,6 +145,8 @@ class MeritBadgesTableViewController: UIViewController {
             return favoriteMeritBadges[indexPath.row]
         case 1:
             return eagleMeritBadges[indexPath.row]
+        case 28:
+            return completedMeritBadges[indexPath.row]
         default:
             return alphabetizedMeritBadges[indexPath.section - 2][indexPath.row]
         }
@@ -160,6 +162,8 @@ class MeritBadgesTableViewController: UIViewController {
             return favoriteMeritBadges.count
         case 1:
             return eagleMeritBadges.count
+        case 28:
+            return completedMeritBadges.count
         default:
             return alphabetizedMeritBadges[section - 2].count
         }
@@ -175,10 +179,7 @@ extension MeritBadgesTableViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        if proposedDestinationIndexPath.section != 0 {
-            return sourceIndexPath
-        }
-        return proposedDestinationIndexPath
+        return proposedDestinationIndexPath.section == 0 ? proposedDestinationIndexPath : sourceIndexPath
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -194,7 +195,7 @@ extension MeritBadgesTableViewController: UITableViewDelegate {
 extension MeritBadgesTableViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isFiltering() ? 1 : 28
+        return isFiltering() ? 1 : sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -228,7 +229,7 @@ extension MeritBadgesTableViewController: UITableViewDataSource {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return ["★", "◯"] + (65...90).map { fromAscii($0) }
+        return ["★", "◯"] + (65...90).map { fromAscii($0) } + ["✓"]
     }
     
 }
@@ -251,10 +252,6 @@ extension MeritBadgesTableViewController: MeritBadgeCellDelegate {
         
         try! realm.write {
             meritBadge.favoriteIndex = (meritBadge.favoriteIndex == -1) ? favoriteMeritBadges.count : -1
-        }
-        
-        if let cell = tableView.cellForRow(at: indexPath) as! MeritBadgeTableViewCell? {
-            cell.update(meritBadge: meritBadge)
         }
         
         sortMeritBadges()

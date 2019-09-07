@@ -5,6 +5,8 @@ class Requirement: Object {
     @objc dynamic var index = ""
     @objc dynamic var text = ""
     @objc dynamic var isComplete = false
+    @objc dynamic var parentRank: Rank? = nil
+    @objc dynamic var parentMeritBadge: MeritBadge? = nil
 }
 
 class Rank: Object {

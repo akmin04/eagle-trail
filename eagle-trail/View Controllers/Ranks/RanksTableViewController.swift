@@ -41,6 +41,9 @@ class RanksTableViewController: UIViewController {
                         requirement.depth = data["depth"].intValue
                         requirement.index = data["index"].stringValue
                         requirement.text = data["text"].stringValue
+                        if requirement.depth == 0 {
+                            requirement.parentRank = rank
+                        }
                         rank.requirements.append(requirement)
                     }
                     realm.add(rank)
@@ -66,6 +69,11 @@ class RanksTableViewController: UIViewController {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
 }

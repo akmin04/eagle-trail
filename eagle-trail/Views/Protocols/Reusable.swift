@@ -2,7 +2,7 @@ import UIKit
 
 // http://alisoftware.github.io/swift/generics/2016/01/06/generic-tableviewcells/
 
-protocol Reusable: class {
+protocol Reusable: AnyObject {
     static var reuseIdentifier: String { get }
     static var nib: UINib? { get }
 }

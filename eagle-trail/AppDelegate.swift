@@ -3,14 +3,44 @@ import RealmSwift
 import SwiftyJSON
 import UIKit
 
+// Force all data to clear at app launch for debugging
+let force = false
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Private Properties
     
-    private let realm = try! Realm()
+    lazy private var realm: Realm = {
+        guard let realm = try? Realm() else {
+            fatalError("Error initializing realm")
+        }
+        return realm
+    }()
     
-    lazy private var preload = getPreload(force: false)
+    lazy private var preload: JSON? = {
+        if !force && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
+            os_log("Reading previous data")
+            return nil
+        }
+        
+        if force {
+            os_log("Forcing preload data. Deleting all objects", type: .debug)
+            try! realm.write {
+                realm.deleteAll()
+            }
+        }
+        
+        UserDefaults.standard.set(true, forKey: "initialDataLoaded")
+        
+        guard let path = Bundle.main.path(forResource: "preload", ofType: "json") else {
+            fatalError("Unable to find preload file")
+        }
+        
+        return JSON(parseJSON: try! String(contentsOfFile: path, encoding: .utf8))
+    }()
+    
+    // MARK: - View Hierarchy
     
     lazy private var rootViewController: UITabBarController = {
         let tabBarController = UITabBarController()
@@ -22,13 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = viewControllers.map {
             let navigationController = UINavigationController(rootViewController: $0)
+            navigationController.navigationBar.prefersLargeTitles = true
             return navigationController
         }
         
         return tabBarController
     }()
-    
-    // MARK: - View Hierarchy
     
     var window: UIWindow?
     
@@ -63,30 +92,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    // MARK: Private Methods
-    
-    private func getPreload(force: Bool = false) -> JSON? {
-        if !force && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
-            return nil
-        }
-        
-        if force {
-            os_log("Forcing preload data. Deleting all objects", type: .debug)
-            try! realm.write {
-                realm.deleteAll()
-            }
-        }
-        
-        UserDefaults.standard.set(true, forKey: "initialDataLoaded")
-        
-        guard let path = Bundle.main.path(forResource: "preload", ofType: "json") else {
-            fatalError("Unable to find preload file")
-        }
-        
-        let jsonString = try! String(contentsOfFile: path, encoding: .utf8)
-        let jsonResult = JSON(parseJSON: jsonString)
-        
-        return jsonResult
-    }
 }
 

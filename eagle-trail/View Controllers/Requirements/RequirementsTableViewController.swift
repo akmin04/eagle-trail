@@ -8,9 +8,10 @@ class RequirementsTableViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var name: String!
-    private var requirements: [(requirement: Requirement, isHidden: Bool)]!
     private var realm: Realm!
+    private var name: String!
+    
+    private var requirements: [(requirement: Requirement, isHidden: Bool)]!
     
     lazy private var tableView: UITableView = {
         let tableView = UITableView()
@@ -40,6 +41,7 @@ class RequirementsTableViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = name
+        navigationItem.largeTitleDisplayMode = .never
         
         for (i, requirement) in requirements.enumerated() {
             if !requirement.isHidden && requirement.requirement.isComplete {
@@ -55,22 +57,23 @@ class RequirementsTableViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func hideCompleted(indexPath: IndexPath) {
+    private func getChildren(at indexPath: IndexPath) -> [IndexPath] {
         let requirement = requirements[indexPath.row].requirement
         var index = indexPath.row + 1
         
         while index < requirements.count && requirements[index].requirement.depth > requirement.depth {
             index += 1
         }
-            
-        for i in (indexPath.row + 1)..<index {
-            requirements[i].isHidden = requirement.isComplete
-        }
         
-        tableView.reloadRows(
-            at: Array(indexPath.row..<index).map { IndexPath(row: $0, section: indexPath.section) },
-            with: .automatic
-        )
+        return ((indexPath.row + 1)..<index).map { IndexPath(row: $0, section: indexPath.section) }
+    }
+    
+    private func hideCompleted(indexPath: IndexPath) {
+        let childrenIndices = getChildren(at: indexPath)
+        for i in childrenIndices {
+            requirements[i.row].isHidden = requirements[indexPath.row].requirement.isComplete
+        }
+        tableView.reloadRows(at: [indexPath] + childrenIndices, with: .automatic)
     }
     
 }
@@ -103,22 +106,35 @@ extension RequirementsTableViewController: UITableViewDataSource {
     }
 }
 
-extension RequirementsTableViewController: RequirementCellDelegate {
+extension RequirementsTableViewController: LongPressDelegate {
     
-    func longPress(indexPath: IndexPath) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+    func longPress(at indexPath: IndexPath) {
         let requirement = self.requirements[indexPath.row].requirement
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alertController.addAction(UIAlertAction(title: requirement.isComplete ? "Not Complete" : "Complete", style: .default, handler: { (_) in
-            try! self.realm.write {
-                requirement.isComplete = !requirement.isComplete
+        try! self.realm.write {
+            requirement.isComplete = !requirement.isComplete
+            
+            // Update parent rank/merit badge if all top-level requirements are complete.
+            let allComplete = self.requirements
+                .filter { !$0.requirement.isComplete && $0.requirement.depth == 0}
+                .count == 0
+            if let rank = requirement.parentRank {
+                rank.isComplete = allComplete
+            }
+            if let meritBadge = requirement.parentMeritBadge {
+                meritBadge.isComplete = allComplete
             }
             
-            self.hideCompleted(indexPath: indexPath)
-        }))
+            // If the requirement was changed to not complete, mark all its children as not complete.
+            if !requirement.isComplete {
+                getChildren(at: indexPath).forEach {
+                    self.requirements[$0.row].requirement.isComplete = false
+                }
+            }
+        }
         
-        present(alertController, animated: true, completion: nil)
+        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        self.hideCompleted(indexPath: indexPath)
     }
     
 }

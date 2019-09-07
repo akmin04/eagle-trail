@@ -11,31 +11,32 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
     
-    @IBAction func favoriteButtonPressed(_ sender: Any) {
-        delegate.toggleFavorite(indexPath: indexPath)
-    }
-    
-    // MARK: - Private Properties
+    // MARK: - Properties
     
     private var delegate: MeritBadgeCellDelegate!
     private var indexPath: IndexPath!
     
-    // MARK: - Public Methods
+    // MARK: - Methods
     
     func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: MeritBadgeCellDelegate) {
         self.indexPath = indexPath
         self.delegate = delegate
         
-        update(meritBadge: meritBadge)
-    }
-    
-    func update(meritBadge: MeritBadge) {
-        nameLabel.text = meritBadge.name
+        favoriteButton.addTarget(self, action: #selector(onFavoriteButtonPress), for: .touchUpInside)
+        
+        nameLabel.attributedText = NSAttributedString(
+            string: meritBadge.name,
+            attributes: [NSAttributedString.Key.strikethroughStyle : (meritBadge.isComplete ? 2 : 0)]
+        )
         if meritBadge.favoriteIndex == -1 {
             favoriteButton.tintColor = .lightGray
         } else {
             favoriteButton.tintColor = .systemBlue
         }
+    }
+    
+    @objc func onFavoriteButtonPress() {
+        delegate.toggleFavorite(indexPath: indexPath)
     }
     
 }

@@ -17,17 +17,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hBn-Mp-NxF">
-                        <rect key="frame" x="0.0" y="4" width="398" height="61"/>
+                        <rect key="frame" x="0.0" y="8" width="398" height="53"/>
                         <subviews>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GIi-yH-HYB" userLabel="Spacer">
-                                <rect key="frame" x="0.0" y="0.0" width="16" height="61"/>
+                                <rect key="frame" x="0.0" y="0.0" width="16" height="53"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="16" id="e2w-QI-aaf"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="After attending at least one Scout troop meeting, do the following:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkq-go-BD6" userLabel="Text">
-                                <rect key="frame" x="32" y="0.0" width="366" height="61"/>
+                                <rect key="frame" x="32" y="0.0" width="366" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -37,9 +37,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="hBn-Mp-NxF" firstAttribute="leading" secondItem="t1S-1o-JJp" secondAttribute="leading" id="044-V6-O2u"/>
-                    <constraint firstItem="hBn-Mp-NxF" firstAttribute="top" secondItem="t1S-1o-JJp" secondAttribute="top" priority="999" constant="4" id="O42-Bo-Rc0"/>
+                    <constraint firstItem="hBn-Mp-NxF" firstAttribute="top" secondItem="t1S-1o-JJp" secondAttribute="top" priority="999" constant="8" id="O42-Bo-Rc0"/>
                     <constraint firstAttribute="trailing" secondItem="hBn-Mp-NxF" secondAttribute="trailing" constant="16" id="hI7-9o-cw0"/>
-                    <constraint firstAttribute="bottom" secondItem="hBn-Mp-NxF" secondAttribute="bottom" priority="999" constant="4" id="r8r-0F-k6d"/>
+                    <constraint firstAttribute="bottom" secondItem="hBn-Mp-NxF" secondAttribute="bottom" priority="999" constant="8" id="r8r-0F-k6d"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

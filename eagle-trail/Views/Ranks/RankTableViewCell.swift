@@ -7,10 +7,13 @@ class RankTableViewCell: UITableViewCell, Reusable {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var badgeImageView: UIImageView!
     
-    // MARK: - Public Methods
+    // MARK: - Methods
     
     func setup(rank: Rank) {
-        nameLabel.text = rank.name
+        nameLabel.attributedText = NSAttributedString(
+            string: rank.name,
+            attributes: [NSAttributedString.Key.strikethroughStyle : (rank.isComplete ? 2 : 0)]
+        )
         badgeImageView.image = UIImage.rankBadge(name: rank.name)
     }
     

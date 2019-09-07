@@ -1,10 +1,6 @@
 import SnapKit
 import UIKit
 
-protocol RequirementCellDelegate {
-    func longPress(indexPath: IndexPath)
-}
-
 class RequirementTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Interface Builder
@@ -13,25 +9,25 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
     @IBOutlet weak var spacerView: UIView!
     @IBOutlet weak var spacerViewWidth: NSLayoutConstraint!
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     
-    private var delegate: RequirementCellDelegate!
+    private var delegate: LongPressDelegate!
     private var indexPath: IndexPath!
-    private var longPressGesture: UILongPressGestureRecognizer!
     
-    // MARK: - Public Methods
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let longPressGesture = UILongPressGestureRecognizer()
+        longPressGesture.addTarget(self, action: #selector(onLongPress))
+        return longPressGesture
+    }()
     
-    func setup(requirement: Requirement, indexPath: IndexPath, delegate: RequirementCellDelegate) {
+    // MARK: - Methods
+    
+    func setup(requirement: Requirement, indexPath: IndexPath, delegate: LongPressDelegate) {
         self.indexPath = indexPath
         self.delegate = delegate
         
-        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPress))
         addGestureRecognizer(longPressGesture)
         
-        update(requirement: requirement)
-    }
-    
-    func update(requirement: Requirement) {
         reqTextLabel.text = [
             requirement.index,
             requirement.index == "" ? "" : ") ",
@@ -41,7 +37,10 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
         spacerView.layoutIfNeeded()
     }
     
-    @objc func longPress() {
-        delegate.longPress(indexPath: indexPath)
+    @objc func onLongPress() {
+        if longPressGesture.state == .began {
+            delegate.longPress(at: indexPath)
+        }
     }
+    
 }

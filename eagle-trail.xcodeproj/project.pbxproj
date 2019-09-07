@@ -20,6 +20,7 @@
 		073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */; };
 		073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */; };
 		0772525322E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */; };
+		078A7494231CE54800C68D34 /* LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A7493231CE54800C68D34 /* LongPress.swift */; };
 		07919D1623136D3D00896CDD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07919D1523136D3D00896CDD /* Realm.swift */; };
 		07A1F7AF22EA3325004EE52F /* preload.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A1F7AE22EA3325004EE52F /* preload.json */; };
 		07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */; };
@@ -46,6 +47,7 @@
 		073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeTableViewCell.swift; sourceTree = "<group>"; };
 		073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeritBadgeTableViewCell.xib; sourceTree = "<group>"; };
 		0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeDetailViewController.swift; sourceTree = "<group>"; };
+		078A7493231CE54800C68D34 /* LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPress.swift; sourceTree = "<group>"; };
 		07919D1523136D3D00896CDD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		07A1F7AE22EA3325004EE52F /* preload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preload.json; sourceTree = "<group>"; };
 		07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EagleTrail.swift"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		073DEA3E22E6511D00FFBE24 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				078A7492231CE53A00C68D34 /* Protocols */,
 				072D45C522E7C6A500246334 /* Ranks */,
 				0772525122E6CA9900B2C1F9 /* Merit Badges */,
 				07350C59231B0525002D5A6F /* Requirements */,
@@ -202,6 +205,14 @@
 				0772525222E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift */,
 			);
 			path = "Merit Badges";
+			sourceTree = "<group>";
+		};
+		078A7492231CE53A00C68D34 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				078A7493231CE54800C68D34 /* LongPress.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		07D8094D22E799F9005DC731 /* Protocols */ = {
@@ -347,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078A7494231CE54800C68D34 /* LongPress.swift in Sources */,
 				073DEA4422E6533100FFBE24 /* MeritBadgesTableViewController.swift in Sources */,
 				0772525322E6CAA800B2C1F9 /* MeritBadgeDetailViewController.swift in Sources */,
 				073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */,
@@ -499,7 +511,9 @@
 			baseConfigurationReference = 77A65079417B4DFED9256B7A /* Pods-Eagle Trail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hyunjung Lee (A2LN9GFK7Z)";
 				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -508,6 +522,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewkmin.eagle-trail";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = EagleTrailDevelopmentProfile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -518,7 +533,9 @@
 			baseConfigurationReference = F33BC87C78E2055941D7C219 /* Pods-Eagle Trail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Distribution: Hyunjung Lee (GF62QU9N35)";
 				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -527,6 +544,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewkmin.eagle-trail";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = EagleTrailDistributionProfile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
