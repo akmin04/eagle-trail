@@ -17,7 +17,7 @@ class MeritBadgesTableViewController: UIViewController {
     private var completedMeritBadges: [MeritBadge]!
     private var filteredMeritBadges: [MeritBadge]!
     
-    lazy private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -25,7 +25,7 @@ class MeritBadgesTableViewController: UIViewController {
         return tableView
     }()
     
-    lazy private var searchController: UISearchController = {
+    private lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search"
@@ -33,7 +33,7 @@ class MeritBadgesTableViewController: UIViewController {
         return searchController
     }()
     
-    lazy private var sections: [String] = {
+    private lazy var sections: [String] = {
         let sections = ["Favorites", "Eagle Required"] + (65...90).map { fromAscii($0) } + ["Completed"]
         return sections
     }()
@@ -90,7 +90,7 @@ class MeritBadgesTableViewController: UIViewController {
         sortMeritBadges()
         
         view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
     }
@@ -175,7 +175,7 @@ extension MeritBadgesTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(MeritBadgeDetailViewController(meritBadge: meritBadgeAt(indexPath), realm: realm), animated: true)
+        navigationController?.pushViewController(RequirementsTableViewController(badge: meritBadgeAt(indexPath), realm: realm), animated: true)
     }
     
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
@@ -245,7 +245,7 @@ extension MeritBadgesTableViewController: UISearchResultsUpdating {
     
 }
 
-extension MeritBadgesTableViewController: MeritBadgeCellDelegate {
+extension MeritBadgesTableViewController: Favoritable {
     
     func toggleFavorite(indexPath: IndexPath) {
         let meritBadge = meritBadgeAt(indexPath)

@@ -1,9 +1,5 @@
 import UIKit
 
-protocol MeritBadgeCellDelegate {
-    func toggleFavorite(indexPath: IndexPath)
-}
-
 class MeritBadgeTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Interface Builder
@@ -13,12 +9,12 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Properties
     
-    private var delegate: MeritBadgeCellDelegate!
+    private var delegate: Favoritable!
     private var indexPath: IndexPath!
     
     // MARK: - Methods
     
-    func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: MeritBadgeCellDelegate) {
+    func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: Favoritable) {
         self.indexPath = indexPath
         self.delegate = delegate
         

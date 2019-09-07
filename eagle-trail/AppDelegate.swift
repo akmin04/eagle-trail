@@ -11,14 +11,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - Private Properties
     
-    lazy private var realm: Realm = {
+    private lazy var realm: Realm = {
         guard let realm = try? Realm() else {
             fatalError("Error initializing realm")
         }
         return realm
     }()
     
-    lazy private var preload: JSON? = {
+    private lazy var preload: JSON? = {
         if !force && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
             os_log("Reading previous data")
             return nil
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: - View Hierarchy
     
-    lazy private var rootViewController: UITabBarController = {
+    private lazy var rootViewController: UITabBarController = {
         let tabBarController = UITabBarController()
         
         let viewControllers = [

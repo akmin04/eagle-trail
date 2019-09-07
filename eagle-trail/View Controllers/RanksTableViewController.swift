@@ -12,7 +12,7 @@ class RanksTableViewController: UIViewController {
     
     private var ranks: [Rank]!
     
-    lazy private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,7 +66,7 @@ class RanksTableViewController: UIViewController {
         navigationItem.title = "Ranks"
         
         view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        tableView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
     }
@@ -82,7 +82,7 @@ extension RanksTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(RankDetailViewController(rank: ranks[indexPath.row], realm: realm), animated: true)
+        navigationController?.pushViewController(RequirementsTableViewController(badge: ranks[indexPath.row], realm: realm), animated: true)
     }
     
 }

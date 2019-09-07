@@ -9,11 +9,13 @@ class RequirementsTableViewController: UIViewController {
     // MARK: - Private Properties
     
     private var realm: Realm!
-    private var name: String!
     
+    private var name: String!
     private var requirements: [(requirement: Requirement, isHidden: Bool)]!
     
-    lazy private var tableView: UITableView = {
+    private var summaryView: SummaryView!
+    
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
@@ -23,12 +25,13 @@ class RequirementsTableViewController: UIViewController {
     
     // MARK: - Init
     
-    init(name: String, requirements: [Requirement], realm: Realm) {
+    init(badge: Badge, realm: Realm) {
         super.init(nibName: nil, bundle: nil)
         
-        self.name = name
-        self.requirements = requirements.map { ($0, false) }
+        self.name = badge.name
+        self.requirements = badge.requirements.map { ($0, false) }
         self.realm = realm
+        self.summaryView = SummaryView(badge: badge)
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +53,14 @@ class RequirementsTableViewController: UIViewController {
         }
         
         view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
+        tableView.tableHeaderView = summaryView
+        summaryView.update()
+        summaryView.frame.size.height = summaryView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        summaryView.snp.makeConstraints { make in
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+        }
+        tableView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
     }

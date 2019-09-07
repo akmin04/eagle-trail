@@ -1,5 +1,10 @@
 import RealmSwift
 
+protocol Badge where Self : Object {
+    var name: String { get set }
+    var requirements: List<Requirement> { get set }
+}
+
 class Requirement: Object {
     @objc dynamic var depth = 0
     @objc dynamic var index = ""
@@ -9,16 +14,16 @@ class Requirement: Object {
     @objc dynamic var parentMeritBadge: MeritBadge? = nil
 }
 
-class Rank: Object {
+class Rank: Object, Badge {
     @objc dynamic var name = ""
     @objc dynamic var isComplete = false
-    let requirements = List<Requirement>()
+    var requirements = List<Requirement>()
 }
 
-class MeritBadge: Object {
+class MeritBadge: Object, Badge {
     @objc dynamic var name = ""
     @objc dynamic var favoriteIndex = -1
     @objc dynamic var isComplete = false
     @objc dynamic var isEagle = false
-    let requirements = List<Requirement>()
+    var requirements = List<Requirement>()
 }
