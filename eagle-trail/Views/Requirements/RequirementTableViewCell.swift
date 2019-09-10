@@ -9,7 +9,7 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
     @IBOutlet weak var spacerView: UIView!
     @IBOutlet weak var spacerViewWidth: NSLayoutConstraint!
     
-    // MARK: - Properties
+    // MARK: - Private Properties
     
     private var delegate: LongPressDelegate!
     private var indexPath: IndexPath!

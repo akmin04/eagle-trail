@@ -12,6 +12,7 @@
 		072D45D022E7C84100246334 /* RanksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D45CF22E7C84100246334 /* RanksTableViewController.swift */; };
 		07350C57231B0214002D5A6F /* RequirementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07350C56231B0214002D5A6F /* RequirementTableViewCell.swift */; };
 		07350C5B231B054A002D5A6F /* RequirementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */; };
+		073D0DFC23276F500052DAD2 /* Completable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D0DFB23276F500052DAD2 /* Completable.swift */; };
 		073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA2C22E650E800FFBE24 /* AppDelegate.swift */; };
 		073DEA3422E650E900FFBE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA3322E650E900FFBE24 /* Assets.xcassets */; };
 		073DEA3722E650E900FFBE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA3522E650E900FFBE24 /* LaunchScreen.storyboard */; };
@@ -38,6 +39,7 @@
 		072D45CF22E7C84100246334 /* RanksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanksTableViewController.swift; sourceTree = "<group>"; };
 		07350C56231B0214002D5A6F /* RequirementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementTableViewCell.swift; sourceTree = "<group>"; };
 		07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsTableViewController.swift; sourceTree = "<group>"; };
+		073D0DFB23276F500052DAD2 /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
 		073DEA2922E650E800FFBE24 /* Eagle Trail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eagle Trail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073DEA2C22E650E800FFBE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		073DEA3322E650E900FFBE24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 			children = (
 				07D8094E22E799F9005DC731 /* Reusable.swift */,
 				07D7783B23244315007BDA6C /* Favoritable.swift */,
+				073D0DFB23276F500052DAD2 /* Completable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				073DEA4422E6533100FFBE24 /* MeritBadgesTableViewController.swift in Sources */,
 				073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */,
 				07D7783C23244315007BDA6C /* Favoritable.swift in Sources */,
+				073D0DFC23276F500052DAD2 /* Completable.swift in Sources */,
 				072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */,
 				07919D1623136D3D00896CDD /* Realm.swift in Sources */,
 				07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */,

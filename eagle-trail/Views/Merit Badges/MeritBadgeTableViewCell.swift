@@ -1,6 +1,6 @@
 import UIKit
 
-class MeritBadgeTableViewCell: UITableViewCell, Reusable {
+class MeritBadgeTableViewCell: UITableViewCell, Reusable, Favoritable {
     
     // MARK: - Interface Builder
     
@@ -9,16 +9,16 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Properties
     
-    private var delegate: Favoritable!
+    private var delegate: FavoriteDelegate!
     private var indexPath: IndexPath!
     
     // MARK: - Methods
     
-    func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: Favoritable) {
+    func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: FavoriteDelegate) {
         self.indexPath = indexPath
         self.delegate = delegate
         
-        favoriteButton.addTarget(self, action: #selector(onFavoriteButtonPress), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(onFavoriteToggle), for: .touchUpInside)
         
         nameLabel.attributedText = NSAttributedString(
             string: meritBadge.name,
@@ -31,7 +31,7 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable {
         }
     }
     
-    @objc func onFavoriteButtonPress() {
+    @objc func onFavoriteToggle() {
         delegate.toggleFavorite(indexPath: indexPath)
     }
     

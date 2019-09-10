@@ -1,26 +1,29 @@
 import RealmSwift
 import UIKit
 
-class SummaryView: UIView, Reusable {
+class SummaryView: UIView, Reusable, Completable {
+
+    // MARK: - Interface Builder
+    
+    @IBOutlet weak var view: UIView!
+    @IBOutlet weak var percentageLabel: UILabel!
+    @IBOutlet weak var fractionLabel: UILabel!
+    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var allCompleteButton: UIButton!
+    @IBOutlet weak var notCompleteButton: UIButton!
     
     // MARK: - Private Properties
     
     private var badge: Badge!
     private var token: NotificationToken!
-    
-    // MARK: - Interface Builder
-    
-    @IBOutlet weak var view: UIView!
-    
-    @IBOutlet weak var percentageLabel: UILabel!
-    @IBOutlet weak var fractionLabel: UILabel!
-    @IBOutlet weak var progressView: UIProgressView!
+    private var delegate: CompleteDelegate!
     
     // MARK: - Init
     
-    init(badge: Badge) {
+    init(badge: Badge, delegate: CompleteDelegate) {
         super.init(frame: .zero)
         
+        self.delegate = delegate
         self.badge = badge
         self.token = badge.observe { change in
             self.update()
@@ -36,6 +39,10 @@ class SummaryView: UIView, Reusable {
     
     private func commonInit() {
         Bundle.main.loadNibNamed(Self.reuseIdentifier, owner: self, options: nil)
+        
+        allCompleteButton.addTarget(self, action: #selector(onAllComplete), for: .touchUpInside)
+        notCompleteButton.addTarget(self, action: #selector(onNotComplete), for: .touchUpInside)
+        
         self.addSubview(view)
         view.snp.makeConstraints { make in
             make.edges.equalTo(self)
@@ -52,5 +59,17 @@ class SummaryView: UIView, Reusable {
         percentageLabel.text = "\(Int(round(Double(completed) / Double(total) * 100.0)))%"
         fractionLabel.text = "\(completed)/\(total)"
         progressView.progress = Float(completed) / Float(total)
+    }
+    
+    // MARK: - Completable
+    
+    @objc func onAllComplete() {
+        delegate.allComplete()
+        update()
+    }
+    
+    @objc func onNotComplete() {
+        delegate.notComplete()
+        update()
     }
 }

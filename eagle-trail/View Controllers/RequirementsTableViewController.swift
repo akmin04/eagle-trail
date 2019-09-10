@@ -31,7 +31,7 @@ class RequirementsTableViewController: UIViewController {
         self.name = badge.name
         self.requirements = badge.requirements.map { ($0, false) }
         self.realm = realm
-        self.summaryView = SummaryView(badge: badge)
+        self.summaryView = SummaryView(badge: badge, delegate: self)
     }
     
     required init?(coder: NSCoder) {
@@ -145,6 +145,34 @@ extension RequirementsTableViewController: LongPressDelegate {
         
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
         self.hideCompleted(indexPath: indexPath)
+    }
+    
+}
+
+extension RequirementsTableViewController: CompleteDelegate {
+    
+    func allComplete() {
+        markComplete(value: true)
+    }
+    
+    func notComplete() {
+        markComplete(value: false)
+    }
+    
+    private func markComplete(value: Bool) {
+        try! realm.write {
+            requirements
+                .map { $0.requirement }
+                .enumerated()
+                .forEach { (i, requirement) in
+                    if requirement.depth == 0 {
+                        requirement.isComplete = value
+                        hideCompleted(indexPath: IndexPath(row: i, section: 0))
+                    }
+                }
+        }
+        
+        tableView.reloadData()
     }
     
 }
