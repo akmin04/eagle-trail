@@ -54,6 +54,7 @@ class RequirementsTableViewController: UIViewController {
         
         view.addSubview(tableView)
         tableView.tableHeaderView = summaryView
+        tableView.tableFooterView = UIView(frame: .zero)
         summaryView.update()
         summaryView.frame.size.height = summaryView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
         summaryView.snp.makeConstraints { make in
