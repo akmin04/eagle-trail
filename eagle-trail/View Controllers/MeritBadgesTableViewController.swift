@@ -229,7 +229,7 @@ extension MeritBadgesTableViewController: UITableViewDataSource {
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return ["★", "◯"] + (65...90).map { fromAscii($0) } + ["✓"]
+        return isFiltering() ? nil : ["★", "◯"] + (65...90).map { fromAscii($0) } + ["✓"]
     }
     
 }
