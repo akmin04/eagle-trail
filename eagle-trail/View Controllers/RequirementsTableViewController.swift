@@ -122,7 +122,7 @@ extension RequirementsTableViewController: LongPressDelegate {
     func longPress(at indexPath: IndexPath) {
         let requirement = self.requirements[indexPath.row].requirement
         
-        try! self.realm.write {
+        try! realm.write {
             requirement.isComplete = !requirement.isComplete
             
             // Update parent rank/merit badge if all top-level requirements are complete.
@@ -171,6 +171,14 @@ extension RequirementsTableViewController: CompleteDelegate {
                         hideCompleted(indexPath: IndexPath(row: i, section: 0))
                     }
                 }
+            
+            if let rank = requirements.first!.requirement.parentRank {
+                rank.isComplete = value
+            }
+            
+            if let meritBadge = requirements.first!.requirement.parentMeritBadge {
+                meritBadge.isComplete = value
+            }
         }
         
         tableView.reloadData()

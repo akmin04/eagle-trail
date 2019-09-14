@@ -82,6 +82,7 @@ class MeritBadgesTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        definesPresentationContext = true
         navigationItem.title = "Merit Badges"
         navigationItem.rightBarButtonItem = editButtonItem
         navigationItem.searchController = searchController
