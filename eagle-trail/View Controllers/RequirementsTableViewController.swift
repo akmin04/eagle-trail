@@ -127,7 +127,7 @@ extension RequirementsTableViewController: UITableViewDataSource {
 
 extension RequirementsTableViewController: LongPressDelegate {
     
-    func longPress(at indexPath: IndexPath) {
+    func longPressed(at indexPath: IndexPath) {
         let requirement = self.requirements[indexPath.row].requirement
         
         try! realm.write {
@@ -160,11 +160,11 @@ extension RequirementsTableViewController: LongPressDelegate {
 
 extension RequirementsTableViewController: CompleteDelegate {
     
-    func allComplete() {
+    func allCompleted() {
         markComplete(value: true)
     }
     
-    func notComplete() {
+    func notCompleted() {
         markComplete(value: false)
     }
     

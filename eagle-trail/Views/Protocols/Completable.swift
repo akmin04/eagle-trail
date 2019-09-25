@@ -6,6 +6,6 @@ import Foundation
 }
 
 protocol CompleteDelegate {
-    func allComplete()
-    func notComplete()
+    func allCompleted()
+    func notCompleted()
 }

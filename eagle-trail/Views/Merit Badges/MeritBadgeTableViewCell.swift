@@ -32,7 +32,7 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable, Favoritable {
     }
     
     @objc func onFavoriteToggle() {
-        delegate.toggleFavorite(indexPath: indexPath)
+        delegate.favoriteToggled(at: indexPath)
     }
     
 }

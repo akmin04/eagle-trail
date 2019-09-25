@@ -251,7 +251,7 @@ extension MeritBadgesTableViewController: UISearchResultsUpdating {
 
 extension MeritBadgesTableViewController: FavoriteDelegate {
     
-    func toggleFavorite(indexPath: IndexPath) {
+    func favoriteToggled(at indexPath: IndexPath) {
         let meritBadge = meritBadgeAt(indexPath)
         
         try! realm.write {

@@ -98,8 +98,6 @@ class RequirementDetailViewController: UIViewController {
     
 }
 
-
-
 extension RequirementDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -133,7 +131,7 @@ extension RequirementDetailViewController: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as RequirementTableViewCell
-            cell.setup(requirement: requirement, indexPath: indexPath, delegate: nil)
+            cell.setup(requirement: requirement, indexPath: indexPath, delegate: nil, ignoreCompleted: true)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NotesTableViewCell

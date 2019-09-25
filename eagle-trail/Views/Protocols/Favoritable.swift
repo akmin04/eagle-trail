@@ -5,5 +5,5 @@ import UIKit
 }
 
 protocol FavoriteDelegate {
-    func toggleFavorite(indexPath: IndexPath)
+    func favoriteToggled(at indexPath: IndexPath)
 }

@@ -64,12 +64,12 @@ class SummaryView: UIView, Reusable, Completable {
     // MARK: - Completable
     
     @objc func onAllComplete() {
-        delegate.allComplete()
+        delegate.allCompleted()
         update()
     }
     
     @objc func onNotComplete() {
-        delegate.notComplete()
+        delegate.notCompleted()
         update()
     }
 }

@@ -22,24 +22,28 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Methods
     
-    func setup(requirement: Requirement, indexPath: IndexPath, delegate: LongPressDelegate?) {
+    func setup(requirement: Requirement, indexPath: IndexPath, delegate: LongPressDelegate?, ignoreCompleted: Bool = false) {
         self.indexPath = indexPath
         self.delegate = delegate
         
         addGestureRecognizer(longPressGesture)
         
-        reqTextLabel.text = [
-            requirement.index,
-            requirement.index == "" ? "" : ") ",
-            requirement.isComplete ? "Complete" : requirement.text
-        ].joined()
+        if !ignoreCompleted {
+            reqTextLabel.text = [
+                requirement.index,
+                requirement.index == "" ? "" : ") ",
+                requirement.isComplete ? "Complete" : requirement.text
+                ].joined()
+        } else {
+            reqTextLabel.text = requirement.text
+        }
         spacerViewWidth.constant = CGFloat(16 * requirement.depth)
         spacerView.layoutIfNeeded()
     }
     
     @objc func onLongPress() {
         if longPressGesture.state == .began {
-            delegate?.longPress(at: indexPath)
+            delegate?.longPressed(at: indexPath)
         }
     }
     
