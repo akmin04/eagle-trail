@@ -11,7 +11,7 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Private Properties
     
-    private var delegate: LongPressDelegate!
+    private var delegate: LongPressDelegate?
     private var indexPath: IndexPath!
     
     private lazy var longPressGesture: UILongPressGestureRecognizer = {
@@ -22,7 +22,7 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Methods
     
-    func setup(requirement: Requirement, indexPath: IndexPath, delegate: LongPressDelegate) {
+    func setup(requirement: Requirement, indexPath: IndexPath, delegate: LongPressDelegate?) {
         self.indexPath = indexPath
         self.delegate = delegate
         
@@ -39,7 +39,7 @@ class RequirementTableViewCell: UITableViewCell, Reusable {
     
     @objc func onLongPress() {
         if longPressGesture.state == .began {
-            delegate.longPress(at: indexPath)
+            delegate?.longPress(at: indexPath)
         }
     }
     

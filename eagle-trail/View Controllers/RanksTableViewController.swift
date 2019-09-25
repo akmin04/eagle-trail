@@ -82,7 +82,10 @@ extension RanksTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(RequirementsTableViewController(badge: ranks[indexPath.row], realm: realm), animated: true)
+        navigationController?.pushViewController(RequirementsTableViewController(
+            badge: ranks[indexPath.row],
+            realm: realm
+        ), animated: true)
     }
     
 }

@@ -93,6 +93,14 @@ extension RequirementsTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let detailViewController = RequirementDetailViewController(
+            requirement: requirements[indexPath.row].requirement,
+            realm: realm
+        )
+        let navigationController = UINavigationController(rootViewController: detailViewController)
+        navigationController.presentationController?.delegate = detailViewController
+        
+        present(navigationController, animated: true)
     }
     
 }
@@ -166,7 +174,7 @@ extension RequirementsTableViewController: CompleteDelegate {
                 .map { $0.requirement }
                 .enumerated()
                 .forEach { (i, requirement) in
-                    if requirement.depth == 0 {
+                    if (value && requirement.depth == 0) || !value {
                         requirement.isComplete = value
                         hideCompleted(indexPath: IndexPath(row: i, section: 0))
                     }

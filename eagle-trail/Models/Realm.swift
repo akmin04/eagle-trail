@@ -12,6 +12,7 @@ class Requirement: Object {
     @objc dynamic var isComplete = false
     @objc dynamic var parentRank: Rank? = nil
     @objc dynamic var parentMeritBadge: MeritBadge? = nil
+    @objc dynamic var notes = "" // schema version 1
 }
 
 class Rank: Object, Badge {

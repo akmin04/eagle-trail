@@ -176,7 +176,10 @@ extension MeritBadgesTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(RequirementsTableViewController(badge: meritBadgeAt(indexPath), realm: realm), animated: true)
+        navigationController?.pushViewController(RequirementsTableViewController(
+            badge: meritBadgeAt(indexPath),
+            realm: realm
+        ), animated: true)
     }
     
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {

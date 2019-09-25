@@ -65,6 +65,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
+        
+        
+        // Version History:
+        // 1 - Add notes to requirements
+        let config = Realm.Configuration(
+            schemaVersion: 1,
+            migrationBlock: { migration, oldSchemaVersion in
+                
+        })
+        Realm.Configuration.defaultConfiguration = config
+        
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
         return true

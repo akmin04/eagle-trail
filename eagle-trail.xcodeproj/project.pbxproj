@@ -19,9 +19,12 @@
 		073DEA4422E6533100FFBE24 /* MeritBadgesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4322E6533100FFBE24 /* MeritBadgesTableViewController.swift */; };
 		073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */; };
 		073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */; };
+		076B3A922336DB3B00E06444 /* RequirementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */; };
 		078A7494231CE54800C68D34 /* LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A7493231CE54800C68D34 /* LongPress.swift */; };
 		07919D1623136D3D00896CDD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07919D1523136D3D00896CDD /* Realm.swift */; };
 		07A1F7AF22EA3325004EE52F /* preload.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A1F7AE22EA3325004EE52F /* preload.json */; };
+		07CFCBE82338041200D592AF /* NotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07CFCBE72338041200D592AF /* NotesTableViewCell.xib */; };
+		07CFCBEA2338046D00D592AF /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */; };
 		07D53AD323235DF2009A1CAB /* SummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D53AD223235DF2009A1CAB /* SummaryView.xib */; };
 		07D53AD523236254009A1CAB /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D53AD423236254009A1CAB /* SummaryView.swift */; };
 		07D7783C23244315007BDA6C /* Favoritable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7783B23244315007BDA6C /* Favoritable.swift */; };
@@ -48,9 +51,12 @@
 		073DEA4322E6533100FFBE24 /* MeritBadgesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgesTableViewController.swift; sourceTree = "<group>"; };
 		073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeTableViewCell.swift; sourceTree = "<group>"; };
 		073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeritBadgeTableViewCell.xib; sourceTree = "<group>"; };
+		076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementDetailViewController.swift; sourceTree = "<group>"; };
 		078A7493231CE54800C68D34 /* LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPress.swift; sourceTree = "<group>"; };
 		07919D1523136D3D00896CDD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		07A1F7AE22EA3325004EE52F /* preload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preload.json; sourceTree = "<group>"; };
+		07CFCBE72338041200D592AF /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
+		07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		07D53AD223235DF2009A1CAB /* SummaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryView.xib; sourceTree = "<group>"; };
 		07D53AD423236254009A1CAB /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		07D7783B23244315007BDA6C /* Favoritable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favoritable.swift; sourceTree = "<group>"; };
@@ -99,6 +105,8 @@
 			children = (
 				07F57C3A2314FCD8002769D2 /* RequirementTableViewCell.xib */,
 				07350C56231B0214002D5A6F /* RequirementTableViewCell.swift */,
+				07CFCBE72338041200D592AF /* NotesTableViewCell.xib */,
+				07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */,
 			);
 			path = Requirements;
 			sourceTree = "<group>";
@@ -141,6 +149,7 @@
 				072D45CF22E7C84100246334 /* RanksTableViewController.swift */,
 				073DEA4322E6533100FFBE24 /* MeritBadgesTableViewController.swift */,
 				07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */,
+				076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 				073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */,
 				07A1F7AF22EA3325004EE52F /* preload.json in Resources */,
 				07D53AD323235DF2009A1CAB /* SummaryView.xib in Resources */,
+				07CFCBE82338041200D592AF /* NotesTableViewCell.xib in Resources */,
 				073DEA3422E650E900FFBE24 /* Assets.xcassets in Resources */,
 				07F57C3B2314FCD8002769D2 /* RequirementTableViewCell.xib in Resources */,
 			);
@@ -353,6 +363,7 @@
 				073DEA4422E6533100FFBE24 /* MeritBadgesTableViewController.swift in Sources */,
 				073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */,
 				07D7783C23244315007BDA6C /* Favoritable.swift in Sources */,
+				076B3A922336DB3B00E06444 /* RequirementDetailViewController.swift in Sources */,
 				073D0DFC23276F500052DAD2 /* Completable.swift in Sources */,
 				072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */,
 				07919D1623136D3D00896CDD /* Realm.swift in Sources */,
@@ -365,6 +376,7 @@
 				072D45D022E7C84100246334 /* RanksTableViewController.swift in Sources */,
 				073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */,
 				07D8094F22E799F9005DC731 /* Reusable.swift in Sources */,
+				07CFCBEA2338046D00D592AF /* NotesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hyunjung Lee (A2LN9GFK7Z)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -527,6 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Hyunjung Lee (GF62QU9N35)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
