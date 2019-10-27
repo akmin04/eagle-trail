@@ -57,11 +57,37 @@ class DetailViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelled))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIWindow.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIWindow.keyboardWillHideNotification,
+            object: nil
+        )
+        
         view.addSubview(tableView)
         view.addGestureRecognizer(tapGesture)
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIWindow.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIWindow.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     // MARK: - Private Methods
@@ -96,6 +122,22 @@ class DetailViewController: UIViewController {
         notesCell.notesTextView.resignFirstResponder()
     }
     
+    @objc private func keyboardWillShow(notification: Notification) {
+        guard let keyboardSize = (notification.userInfo?[UIWindow.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size else {
+            return
+        }
+        
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
+        tableView.contentInset = contentInsets
+        tableView.scrollToRow(at: IndexPath(row: 0, section: notesSection), at: .bottom, animated: true)
+        tableView.scrollIndicatorInsets = tableView.contentInset
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification) {
+        print("hide")
+        tableView.contentInset = .zero
+        tableView.scrollIndicatorInsets = .zero
+    }
 }
 
 extension DetailViewController: UITableViewDelegate {

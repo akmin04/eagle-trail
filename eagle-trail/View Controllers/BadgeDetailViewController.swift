@@ -41,14 +41,9 @@ extension BadgeDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NotesTableViewCell
-            cell.setup(notable: entity, delegate: self)
-            return cell
-        default:
-            fatalError("Out of range")
-        }
+        let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NotesTableViewCell
+        cell.setup(notable: entity, delegate: self)
+        return cell
     }
     
 }
