@@ -83,8 +83,8 @@ class MeritBadgesTableViewController: UIViewController {
         super.viewDidLoad()
         
         definesPresentationContext = true
+        
         navigationItem.title = "Merit Badges"
-        navigationItem.rightBarButtonItem = editButtonItem
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
@@ -103,8 +103,8 @@ class MeritBadgesTableViewController: UIViewController {
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(!isEditing, animated: true)
-        tableView.setEditing(!tableView.isEditing, animated: true)
+        super.setEditing(editing, animated: true)
+        tableView.setEditing(editing, animated: true)
     }
     
     // MARK: - Private Methods
@@ -121,6 +121,13 @@ class MeritBadgesTableViewController: UIViewController {
         
         for meritBadge in meritBadges {
             alphabetizedMeritBadges[toAscii(meritBadge.name.first!) - 65].append(meritBadge)
+        }
+        
+        if favoriteMeritBadges.count < 2 {
+            setEditing(false, animated: true)
+            navigationItem.rightBarButtonItem = nil
+        } else {
+            navigationItem.rightBarButtonItem = editButtonItem
         }
     }
     
