@@ -4,6 +4,8 @@ extension UIImage {
     
     static var favorite: UIImage { return UIImage(named: "favorite")! }
     
+    static var ellipsis: UIImage { return UIImage(named: "ellipsis")! }
+    
     static var rank: UIImage { return UIImage(named: "rank")! }
     
     static var meritBadge: UIImage { return UIImage(named: "merit-badge")! }

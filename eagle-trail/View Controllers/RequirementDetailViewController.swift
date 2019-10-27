@@ -49,7 +49,7 @@ extension RequirementDetailViewController: UITableViewDataSource {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as CompleteTableViewCell
-            cell.setup(completable: entity, indexPath: entityIndexPath, delegate: delegate)
+            cell.setup(completable: entity, indexPath: entityIndexPath!, delegate: delegate!)
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NotesTableViewCell

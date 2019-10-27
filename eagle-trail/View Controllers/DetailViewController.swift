@@ -3,18 +3,17 @@ import RealmSwift
 import SnapKit
 import UIKit
 
-internal typealias CellType = (type: UITableViewCell.Type, section: Int, row: Int)
-internal typealias Entity = Notable & Completable
+private typealias CellType = (type: UITableViewCell.Type, section: Int, row: Int)
 
 class DetailViewController: UIViewController {
     
     // MARK: - Properties
     
     internal var notesSection: Int!
-    internal var entityIndexPath: IndexPath!
+    internal var entityIndexPath: IndexPath?
     internal var entity: Entity!
     
-    internal var delegate: CompletableDelegate!
+    internal var delegate: CompletableDelegate?
     internal var realm: Realm!
     
     internal var noteEdited = false
@@ -36,7 +35,7 @@ class DetailViewController: UIViewController {
     
     // MARK: - Init
     
-    init(notesSection: Int, indexPath: IndexPath, entity: Entity, delegate: CompletableDelegate, realm: Realm) {
+    init(notesSection: Int, indexPath: IndexPath?, entity: Entity, delegate: CompletableDelegate?, realm: Realm) {
         super.init(nibName: nil, bundle: nil)
         
         self.notesSection = notesSection

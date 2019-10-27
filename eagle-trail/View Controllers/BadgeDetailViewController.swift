@@ -7,8 +7,8 @@ class BadgeDetailViewController: DetailViewController {
     
     // MARK: - Init
     
-    init(badge: Badge, indexPath: IndexPath, delegate: CompletableDelegate, realm: Realm) {
-        super.init(notesSection: 1, indexPath: indexPath, entity: badge, delegate: delegate, realm: realm)
+    init(badge: Badge, realm: Realm) {
+        super.init(notesSection: 0, indexPath: nil, entity: badge, delegate: nil, realm: realm)
         tableView.registerReusableCell(CompleteTableViewCell.self)
         tableView.registerReusableCell(NotesTableViewCell.self)
     }
@@ -29,7 +29,7 @@ class BadgeDetailViewController: DetailViewController {
 extension BadgeDetailViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,16 +37,12 @@ extension BadgeDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "Notes" : nil
+        return section == 0 ? "Notes" : nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as CompleteTableViewCell
-            cell.setup(completable: entity, indexPath: entityIndexPath, delegate: delegate)
-            return cell
-        case 1:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NotesTableViewCell
             cell.setup(notable: entity, delegate: self)
             return cell

@@ -10,7 +10,7 @@ class RequirementsTableViewController: UIViewController {
     
     private var realm: Realm!
     
-    private var name: String!
+    private var badge: Badge!
     private var requirements: [(requirement: Requirement, isHidden: Bool)]!
     
     private var summaryView: SummaryView!
@@ -28,7 +28,7 @@ class RequirementsTableViewController: UIViewController {
     init(badge: Badge, realm: Realm) {
         super.init(nibName: nil, bundle: nil)
         
-        self.name = badge.name
+        self.badge = badge
         self.requirements = badge.requirements.map { ($0, false) }
         self.realm = realm
         self.summaryView = SummaryView(badge: badge, delegate: self)
@@ -43,8 +43,9 @@ class RequirementsTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = name
+        navigationItem.title = badge.name
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage.ellipsis, style: .plain, target: self, action: #selector(showMenu))
         
         for (i, requirement) in requirements.enumerated() {
             if !requirement.isHidden && requirement.requirement.isComplete {
@@ -85,6 +86,14 @@ class RequirementsTableViewController: UIViewController {
             requirements[i.row].isHidden = requirements[indexPath.row].requirement.isComplete
         }
         tableView.reloadRows(at: [indexPath] + childrenIndices, with: .automatic)
+    }
+    
+    @objc private func showMenu() {
+        let detailViewController = BadgeDetailViewController(badge: badge, realm: realm)
+        let navigationController = UINavigationController(rootViewController: detailViewController)
+        navigationController.presentationController?.delegate = detailViewController
+        
+        present(navigationController, animated: true)
     }
     
 }

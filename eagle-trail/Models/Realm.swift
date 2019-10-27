@@ -1,5 +1,7 @@
 import RealmSwift
 
+typealias Entity = Notable & Completable
+
 protocol Completable where Self : Object {
     var isComplete: Bool { get set }
 }

@@ -166,10 +166,10 @@
 		073DEA3E22E6511D00FFBE24 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				07A50F1B2364FD45007C67A9 /* DetailViewController.swift */,
 				072D45CF22E7C84100246334 /* RanksTableViewController.swift */,
 				073DEA4322E6533100FFBE24 /* MeritBadgesTableViewController.swift */,
 				07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */,
-				07A50F1B2364FD45007C67A9 /* DetailViewController.swift */,
 				076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */,
 				07A50F192364F9D2007C67A9 /* BadgeDetailViewController.swift */,
 			);
@@ -529,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hyunjung Lee (A2LN9GFK7Z)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -552,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Hyunjung Lee (GF62QU9N35)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 19;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
