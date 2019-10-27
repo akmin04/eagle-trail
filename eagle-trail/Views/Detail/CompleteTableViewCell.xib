@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gNr-zJ-hAy" customClass="CompleteTableViewCell" customModule="Eagle_Trail" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gNr-zJ-hAy" id="0KT-Vv-kTM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="982-Dw-CcI">
+                        <rect key="frame" x="16" y="8" width="382" height="28"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complete" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iL7-Ex-OdE">
+                                <rect key="frame" x="0.0" y="0.0" width="333" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPt-Z5-jUl">
+                                <rect key="frame" x="333" y="0.0" width="51" height="28"/>
+                            </switch>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="982-Dw-CcI" firstAttribute="leading" secondItem="0KT-Vv-kTM" secondAttribute="leading" constant="16" id="h4j-cL-urx"/>
+                    <constraint firstItem="982-Dw-CcI" firstAttribute="top" secondItem="0KT-Vv-kTM" secondAttribute="top" constant="8" id="nQm-vj-cQh"/>
+                    <constraint firstAttribute="trailing" secondItem="982-Dw-CcI" secondAttribute="trailing" constant="16" id="nyI-mf-NSF"/>
+                    <constraint firstAttribute="bottom" secondItem="982-Dw-CcI" secondAttribute="bottom" constant="8" id="tJv-6w-GPr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="completeSwitch" destination="aPt-Z5-jUl" id="wco-DV-9oV"/>
+            </connections>
+            <point key="canvasLocation" x="41" y="157"/>
+        </tableViewCell>
+    </objects>
+</document>

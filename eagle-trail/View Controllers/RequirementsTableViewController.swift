@@ -95,6 +95,8 @@ extension RequirementsTableViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailViewController = RequirementDetailViewController(
             requirement: requirements[indexPath.row].requirement,
+            indexPath: indexPath,
+            delegate: self,
             realm: realm
         )
         let navigationController = UINavigationController(rootViewController: detailViewController)
@@ -125,9 +127,9 @@ extension RequirementsTableViewController: UITableViewDataSource {
     }
 }
 
-extension RequirementsTableViewController: LongPressDelegate {
+extension RequirementsTableViewController: CompletableDelegate {
     
-    func longPressed(at indexPath: IndexPath) {
+    func completeToggled(at indexPath: IndexPath) {
         let requirement = self.requirements[indexPath.row].requirement
         
         try! realm.write {
@@ -158,7 +160,7 @@ extension RequirementsTableViewController: LongPressDelegate {
     
 }
 
-extension RequirementsTableViewController: CompleteDelegate {
+extension RequirementsTableViewController: SummaryDelegate {
     
     func allCompleted() {
         markComplete(value: true)

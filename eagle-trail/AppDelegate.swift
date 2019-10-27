@@ -3,9 +3,6 @@ import RealmSwift
 import SwiftyJSON
 import UIKit
 
-// Force all data to clear at app launch for debugging
-let force = false
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -19,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     private lazy var preload: JSON? = {
-        if !force && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
+        if !Constants.forceDataClear && UserDefaults.standard.object(forKey: "initialDataLoaded") != nil {
             os_log("Reading previous data")
             return nil
         }
         
-        if force {
+        if Constants.forceDataClear {
             os_log("Forcing preload data. Deleting all objects", type: .debug)
             try! realm.write {
                 realm.deleteAll()
@@ -66,14 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         
-        
-        // Version History:
-        // 1 - Add notes to requirements
         let config = Realm.Configuration(
-            schemaVersion: 1,
-            migrationBlock: { migration, oldSchemaVersion in
-                
-        })
+            schemaVersion: Constants.schemaVersion,
+            migrationBlock: { (_, _) in }
+        )
         Realm.Configuration.defaultConfiguration = config
         
         window?.rootViewController = rootViewController

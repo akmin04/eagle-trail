@@ -8,8 +8,8 @@ class NotesTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Methods
     
-    func setup(requirement: Requirement, delegate: UITextViewDelegate?) {
-        notesTextView.text = requirement.notes
+    func setup(notable: Notable, delegate: UITextViewDelegate?) {
+        notesTextView.text = notable.notes
         notesTextView.delegate = delegate
     }
     

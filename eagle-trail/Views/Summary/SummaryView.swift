@@ -1,7 +1,7 @@
 import RealmSwift
 import UIKit
 
-class SummaryView: UIView, Reusable, Completable {
+class SummaryView: UIView, Reusable {
 
     // MARK: - Interface Builder
     
@@ -16,11 +16,11 @@ class SummaryView: UIView, Reusable, Completable {
     
     private var badge: Badge!
     private var token: NotificationToken!
-    private var delegate: CompleteDelegate!
+    private var delegate: SummaryDelegate!
     
     // MARK: - Init
     
-    init(badge: Badge, delegate: CompleteDelegate) {
+    init(badge: Badge, delegate: SummaryDelegate) {
         super.init(frame: .zero)
         
         self.delegate = delegate

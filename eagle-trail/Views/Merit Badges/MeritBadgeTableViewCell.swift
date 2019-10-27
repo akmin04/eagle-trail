@@ -1,6 +1,6 @@
 import UIKit
 
-class MeritBadgeTableViewCell: UITableViewCell, Reusable, Favoritable {
+class MeritBadgeTableViewCell: UITableViewCell, Reusable {
     
     // MARK: - Interface Builder
     
@@ -9,12 +9,12 @@ class MeritBadgeTableViewCell: UITableViewCell, Reusable, Favoritable {
     
     // MARK: - Properties
     
-    private var delegate: FavoriteDelegate!
+    private var delegate: MeritBadgeDelegate!
     private var indexPath: IndexPath!
     
     // MARK: - Methods
     
-    func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: FavoriteDelegate) {
+    func setup(meritBadge: MeritBadge, indexPath: IndexPath, delegate: MeritBadgeDelegate) {
         self.indexPath = indexPath
         self.delegate = delegate
         

@@ -13,7 +13,7 @@ class RanksTableViewController: UIViewController {
     private var ranks: [Rank]!
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView.initInsetGrouped()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerReusableCell(RankTableViewCell.self)

@@ -11,3 +11,16 @@ extension Reusable {
     static var reuseIdentifier: String { return String(describing: Self.self) }
     static var nib: UINib? { return UINib(nibName: reuseIdentifier, bundle: nil) }
 }
+
+protocol MeritBadgeDelegate {
+    func favoriteToggled(at indexPath: IndexPath)
+}
+
+protocol CompletableDelegate {
+    func completeToggled(at indexPath: IndexPath)
+}
+
+protocol SummaryDelegate {
+    func allCompleted()
+    func notCompleted()
+}

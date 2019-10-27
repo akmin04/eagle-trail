@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07088B2D2342D88E0045695E /* DescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07088B2C2342D88E0045695E /* DescriptionTableViewCell.xib */; };
+		07088B2F2342D89C0045695E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07088B2E2342D89C0045695E /* DescriptionTableViewCell.swift */; };
+		07088B312342DBC40045695E /* CompleteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07088B302342DBC40045695E /* CompleteTableViewCell.xib */; };
+		07088B332342DC540045695E /* CompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07088B322342DC540045695E /* CompleteTableViewCell.swift */; };
+		07088B362342E20B0045695E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07088B352342E20B0045695E /* Protocols.swift */; };
 		072D45CA22E7C73900246334 /* RankTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 072D45C922E7C73900246334 /* RankTableViewCell.xib */; };
 		072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D45CB22E7C74500246334 /* RankTableViewCell.swift */; };
 		072D45D022E7C84100246334 /* RanksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D45CF22E7C84100246334 /* RanksTableViewController.swift */; };
 		07350C57231B0214002D5A6F /* RequirementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07350C56231B0214002D5A6F /* RequirementTableViewCell.swift */; };
 		07350C5B231B054A002D5A6F /* RequirementsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */; };
-		073D0DFC23276F500052DAD2 /* Completable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073D0DFB23276F500052DAD2 /* Completable.swift */; };
 		073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA2C22E650E800FFBE24 /* AppDelegate.swift */; };
 		073DEA3422E650E900FFBE24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA3322E650E900FFBE24 /* Assets.xcassets */; };
 		073DEA3722E650E900FFBE24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA3522E650E900FFBE24 /* LaunchScreen.storyboard */; };
@@ -20,29 +24,34 @@
 		073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */; };
 		073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */; };
 		076B3A922336DB3B00E06444 /* RequirementDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */; };
-		078A7494231CE54800C68D34 /* LongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A7493231CE54800C68D34 /* LongPress.swift */; };
 		07919D1623136D3D00896CDD /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07919D1523136D3D00896CDD /* Realm.swift */; };
 		07A1F7AF22EA3325004EE52F /* preload.json in Resources */ = {isa = PBXBuildFile; fileRef = 07A1F7AE22EA3325004EE52F /* preload.json */; };
+		07A50F162364F150007C67A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A50F152364F150007C67A9 /* Constants.swift */; };
+		07A50F1A2364F9D2007C67A9 /* BadgeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A50F192364F9D2007C67A9 /* BadgeDetailViewController.swift */; };
+		07A50F1C2364FD45007C67A9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A50F1B2364FD45007C67A9 /* DetailViewController.swift */; };
 		07CFCBE82338041200D592AF /* NotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07CFCBE72338041200D592AF /* NotesTableViewCell.xib */; };
 		07CFCBEA2338046D00D592AF /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */; };
 		07D53AD323235DF2009A1CAB /* SummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07D53AD223235DF2009A1CAB /* SummaryView.xib */; };
 		07D53AD523236254009A1CAB /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D53AD423236254009A1CAB /* SummaryView.swift */; };
-		07D7783C23244315007BDA6C /* Favoritable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D7783B23244315007BDA6C /* Favoritable.swift */; };
 		07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */; };
 		07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */; };
 		07D8094C22E799E4005DC731 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */; };
-		07D8094F22E799F9005DC731 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D8094E22E799F9005DC731 /* Reusable.swift */; };
+		07E4866A233B4C0A003F0D4F /* UITableView+EagleTrail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E48669233B4C0A003F0D4F /* UITableView+EagleTrail.swift */; };
 		07F57C3B2314FCD8002769D2 /* RequirementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F57C3A2314FCD8002769D2 /* RequirementTableViewCell.xib */; };
 		4FB6E1F7800A344C87043A2B /* Pods_Eagle_Trail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07088B2C2342D88E0045695E /* DescriptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		07088B2E2342D89C0045695E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		07088B302342DBC40045695E /* CompleteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompleteTableViewCell.xib; sourceTree = "<group>"; };
+		07088B322342DC540045695E /* CompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTableViewCell.swift; sourceTree = "<group>"; };
+		07088B352342E20B0045695E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		072D45C922E7C73900246334 /* RankTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RankTableViewCell.xib; sourceTree = "<group>"; };
 		072D45CB22E7C74500246334 /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 		072D45CF22E7C84100246334 /* RanksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RanksTableViewController.swift; sourceTree = "<group>"; };
 		07350C56231B0214002D5A6F /* RequirementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementTableViewCell.swift; sourceTree = "<group>"; };
 		07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementsTableViewController.swift; sourceTree = "<group>"; };
-		073D0DFB23276F500052DAD2 /* Completable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completable.swift; sourceTree = "<group>"; };
 		073DEA2922E650E800FFBE24 /* Eagle Trail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eagle Trail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		073DEA2C22E650E800FFBE24 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		073DEA3322E650E900FFBE24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,18 +61,19 @@
 		073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeritBadgeTableViewCell.swift; sourceTree = "<group>"; };
 		073DEA5022E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeritBadgeTableViewCell.xib; sourceTree = "<group>"; };
 		076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequirementDetailViewController.swift; sourceTree = "<group>"; };
-		078A7493231CE54800C68D34 /* LongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPress.swift; sourceTree = "<group>"; };
 		07919D1523136D3D00896CDD /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		07A1F7AE22EA3325004EE52F /* preload.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = preload.json; sourceTree = "<group>"; };
+		07A50F152364F150007C67A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		07A50F192364F9D2007C67A9 /* BadgeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeDetailViewController.swift; sourceTree = "<group>"; };
+		07A50F1B2364FD45007C67A9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		07CFCBE72338041200D592AF /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
 		07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		07D53AD223235DF2009A1CAB /* SummaryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SummaryView.xib; sourceTree = "<group>"; };
 		07D53AD423236254009A1CAB /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
-		07D7783B23244315007BDA6C /* Favoritable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favoritable.swift; sourceTree = "<group>"; };
 		07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+EagleTrail.swift"; sourceTree = "<group>"; };
 		07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+EagleTrail.swift"; sourceTree = "<group>"; };
 		07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
-		07D8094E22E799F9005DC731 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		07E48669233B4C0A003F0D4F /* UITableView+EagleTrail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+EagleTrail.swift"; sourceTree = "<group>"; };
 		07F57C3A2314FCD8002769D2 /* RequirementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RequirementTableViewCell.xib; sourceTree = "<group>"; };
 		5E7AA12B275F907F220FC97E /* Pods_Eagle_Trail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eagle_Trail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A65079417B4DFED9256B7A /* Pods-Eagle Trail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eagle Trail.debug.xcconfig"; path = "Target Support Files/Pods-Eagle Trail/Pods-Eagle Trail.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +92,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07088B2B2342D85D0045695E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				07088B2C2342D88E0045695E /* DescriptionTableViewCell.xib */,
+				07088B2E2342D89C0045695E /* DescriptionTableViewCell.swift */,
+				07088B302342DBC40045695E /* CompleteTableViewCell.xib */,
+				07088B322342DC540045695E /* CompleteTableViewCell.swift */,
+				07CFCBE72338041200D592AF /* NotesTableViewCell.xib */,
+				07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		07131E8C23239CDE003A728C /* Summary */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,8 +128,6 @@
 			children = (
 				07F57C3A2314FCD8002769D2 /* RequirementTableViewCell.xib */,
 				07350C56231B0214002D5A6F /* RequirementTableViewCell.swift */,
-				07CFCBE72338041200D592AF /* NotesTableViewCell.xib */,
-				07CFCBE92338046D00D592AF /* NotesTableViewCell.swift */,
 			);
 			path = Requirements;
 			sourceTree = "<group>";
@@ -148,7 +169,9 @@
 				072D45CF22E7C84100246334 /* RanksTableViewController.swift */,
 				073DEA4322E6533100FFBE24 /* MeritBadgesTableViewController.swift */,
 				07350C5A231B054A002D5A6F /* RequirementsTableViewController.swift */,
+				07A50F1B2364FD45007C67A9 /* DetailViewController.swift */,
 				076B3A912336DB3B00E06444 /* RequirementDetailViewController.swift */,
+				07A50F192364F9D2007C67A9 /* BadgeDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -156,10 +179,11 @@
 		073DEA3F22E6512300FFBE24 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				07D8094D22E799F9005DC731 /* Protocols */,
+				07088B352342E20B0045695E /* Protocols.swift */,
 				072D45C822E7C72B00246334 /* Ranks */,
 				073DEA4D22E65BDB00FFBE24 /* Merit Badges */,
 				07350C58231B0510002D5A6F /* Requirements */,
+				07088B2B2342D85D0045695E /* Detail */,
 				07131E8C23239CDE003A728C /* Summary */,
 			);
 			path = Views;
@@ -170,6 +194,7 @@
 			children = (
 				07A1F7AE22EA3325004EE52F /* preload.json */,
 				07919D1523136D3D00896CDD /* Realm.swift */,
+				07A50F152364F150007C67A9 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -180,6 +205,7 @@
 				07D8094B22E799E4005DC731 /* UITableView+Reusable.swift */,
 				07D8094022E76F81005DC731 /* UIColor+EagleTrail.swift */,
 				07D8094222E775A5005DC731 /* UIImage+EagleTrail.swift */,
+				07E48669233B4C0A003F0D4F /* UITableView+EagleTrail.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,17 +227,6 @@
 				073DEA4E22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift */,
 			);
 			path = "Merit Badges";
-			sourceTree = "<group>";
-		};
-		07D8094D22E799F9005DC731 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				07D8094E22E799F9005DC731 /* Reusable.swift */,
-				078A7493231CE54800C68D34 /* LongPress.swift */,
-				07D7783B23244315007BDA6C /* Favoritable.swift */,
-				073D0DFB23276F500052DAD2 /* Completable.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		3A3A58DED15A18A4C961573A /* Frameworks */ = {
@@ -293,9 +308,11 @@
 			files = (
 				073DEA3722E650E900FFBE24 /* LaunchScreen.storyboard in Resources */,
 				072D45CA22E7C73900246334 /* RankTableViewCell.xib in Resources */,
+				07088B2D2342D88E0045695E /* DescriptionTableViewCell.xib in Resources */,
 				073DEA5122E65C3F00FFBE24 /* MeritBadgeTableViewCell.xib in Resources */,
 				07A1F7AF22EA3325004EE52F /* preload.json in Resources */,
 				07D53AD323235DF2009A1CAB /* SummaryView.xib in Resources */,
+				07088B312342DBC40045695E /* CompleteTableViewCell.xib in Resources */,
 				07CFCBE82338041200D592AF /* NotesTableViewCell.xib in Resources */,
 				073DEA3422E650E900FFBE24 /* Assets.xcassets in Resources */,
 				07F57C3B2314FCD8002769D2 /* RequirementTableViewCell.xib in Resources */,
@@ -351,23 +368,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				078A7494231CE54800C68D34 /* LongPress.swift in Sources */,
 				073DEA4422E6533100FFBE24 /* MeritBadgesTableViewController.swift in Sources */,
+				07A50F162364F150007C67A9 /* Constants.swift in Sources */,
 				073DEA4F22E65BED00FFBE24 /* MeritBadgeTableViewCell.swift in Sources */,
-				07D7783C23244315007BDA6C /* Favoritable.swift in Sources */,
 				076B3A922336DB3B00E06444 /* RequirementDetailViewController.swift in Sources */,
-				073D0DFC23276F500052DAD2 /* Completable.swift in Sources */,
+				07088B332342DC540045695E /* CompleteTableViewCell.swift in Sources */,
 				072D45CC22E7C74500246334 /* RankTableViewCell.swift in Sources */,
+				07A50F1C2364FD45007C67A9 /* DetailViewController.swift in Sources */,
 				07919D1623136D3D00896CDD /* Realm.swift in Sources */,
 				07D8094322E775A5005DC731 /* UIImage+EagleTrail.swift in Sources */,
+				07E4866A233B4C0A003F0D4F /* UITableView+EagleTrail.swift in Sources */,
 				07350C5B231B054A002D5A6F /* RequirementsTableViewController.swift in Sources */,
 				07D53AD523236254009A1CAB /* SummaryView.swift in Sources */,
 				07350C57231B0214002D5A6F /* RequirementTableViewCell.swift in Sources */,
 				07D8094122E76F81005DC731 /* UIColor+EagleTrail.swift in Sources */,
+				07088B362342E20B0045695E /* Protocols.swift in Sources */,
 				07D8094C22E799E4005DC731 /* UITableView+Reusable.swift in Sources */,
+				07A50F1A2364F9D2007C67A9 /* BadgeDetailViewController.swift in Sources */,
 				072D45D022E7C84100246334 /* RanksTableViewController.swift in Sources */,
+				07088B2F2342D89C0045695E /* DescriptionTableViewCell.swift in Sources */,
 				073DEA2D22E650E800FFBE24 /* AppDelegate.swift in Sources */,
-				07D8094F22E799F9005DC731 /* Reusable.swift in Sources */,
 				07CFCBEA2338046D00D592AF /* NotesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,7 +529,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hyunjung Lee (A2LN9GFK7Z)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -532,7 +552,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Hyunjung Lee (GF62QU9N35)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 18;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = GF62QU9N35;
 				INFOPLIST_FILE = "eagle-trail/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

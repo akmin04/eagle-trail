@@ -3,13 +3,12 @@ import RealmSwift
 import SnapKit
 import UIKit
 
-class RequirementDetailViewController: DetailViewController {
+class BadgeDetailViewController: DetailViewController {
     
     // MARK: - Init
     
-    init(requirement: Requirement, indexPath: IndexPath, delegate: CompletableDelegate, realm: Realm) {
-        super.init(notesSection: 2, indexPath: indexPath, entity: requirement, delegate: delegate, realm: realm)
-        tableView.registerReusableCell(DescriptionTableViewCell.self)
+    init(badge: Badge, indexPath: IndexPath, delegate: CompletableDelegate, realm: Realm) {
+        super.init(notesSection: 1, indexPath: indexPath, entity: badge, delegate: delegate, realm: realm)
         tableView.registerReusableCell(CompleteTableViewCell.self)
         tableView.registerReusableCell(NotesTableViewCell.self)
     }
@@ -27,10 +26,10 @@ class RequirementDetailViewController: DetailViewController {
     
 }
 
-extension RequirementDetailViewController: UITableViewDataSource {
+extension BadgeDetailViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -38,20 +37,16 @@ extension RequirementDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 2 ? "Notes" : nil
+        return section == 1 ? "Notes" : nil
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(indexPath: indexPath) as DescriptionTableViewCell
-            cell.setup(requirement: entity as! Requirement)
-            return cell
-        case 1:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as CompleteTableViewCell
             cell.setup(completable: entity, indexPath: entityIndexPath, delegate: delegate)
             return cell
-        case 2:
+        case 1:
             let cell = tableView.dequeueReusableCell(indexPath: indexPath) as NotesTableViewCell
             cell.setup(notable: entity, delegate: self)
             return cell
