@@ -26,3 +26,9 @@ DerivedData
 #
 Pods/
 ~                     
+
+# Python
+**/env/
+
+# intellij
+**/.idea/

@@ -9,7 +9,7 @@ import os.path
 import re
 import requests
 
-preload_file = "eagle-trail/Models/preload.json"
+preload_file = "../eagle-trail/Models/preload.json"
 
 rank_url = "https://www.scoutbook.com/mobile/references/boy-scouting/ranks/"
 
